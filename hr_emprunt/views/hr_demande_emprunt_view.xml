@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+		<record model="ir.ui.view" id="demande_emprunt_tree_view">
+			<field name="name">demande.tree</field>
+			<field name="model">hr.emprunt.demande</field>
+			<field name="arch" type="xml">
+				<tree string="Demande d'emprunt">
+					<field name="name"/>
+					<field name="user_id"/>
+					<field name="employe_id"/>
+					<field name="job_id"/>
+					<field name="motif_demande"/>
+					<field name="montant_demande"/>
+					<field name="date_demande"/>
+					<field name="date_echeance"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_emprunt_form_view">
+			<field name="name">hr.emprunt.demande.form</field>
+			<field name="model">hr.emprunt.demande</field>
+			<field name="arch" type="xml">
+				<form >
+					<header>
+						<button name="action_submitted" string="Soumettre aux RH" type="object" states="draft"/>
+						<button name="action_confirmed" string="Transmettre à la comptabilité" type="object" states="submitted"/>
+						<button name="action_generate_loaning" string="Générer l'échéancier de paiement" type="object" states="confirmed"/>
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+						<h4><field name="name" placeholder="Nom"/></h4>
+						<group >
+							<group >
+								<field name="employe_id" />
+								<field name="user_id" invisible="1"/>
+								<field name="job_id" />
+								<field name="motif_demande"/>
+							</group>
+							<group >
+								<field name="montant_demande"/>
+								<!--  <field name="somme_max"/>-->
+								<field name="date_demande"/>
+								<field name="date_echeance"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Note">
+								<field name="note" nolabel="1"/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="demande_empr_search_view">
+			<field name="name">demande.search</field>
+			<field name="model">hr.emprunt.demande</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Recherche des demandes">
+					<group col='15' colspan='4'>
+						<filter string="Statut" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+						<separator orientation="vertical"/>
+						<field name="employe_id" widget="selection"/>
+						<field name="job_id" widget="selection"/>
+						<field name="montant_demande"/>
+				   </group>
+				   <newline/>
+				   <group expand="0" string="Regrouper par..." colspan="4" col="10">
+						<filter string="Employé" icon="terp-personal" domain="[]" context="{'group_by':'employe_id'}"/>
+						<filter string="Poste" icon="terp-partner" domain="[]" context="{'group_by':'job_id'}"/>
+				   </group>
+				</search>
+			</field>
+		</record>
+
+
+		<act_window id="act_dmd_emprunt_wizard" name="Demande d'emprunt"
+		src_model="hr.employee"
+		res_model="hr.emprunt.demande"
+		key2="client_action_multi" target="new"
+		view_mode="form"/>
+
+
+
+		<record model="ir.actions.act_window" id="action_demande_emprunt_user_view">
+			<field name="name">Mes demandes d'emprunt</field>
+			<field name="res_model">hr.emprunt.demande</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="demande_emprunt_tree_view"/>
+		</record>
+
+		<menuitem id="demande_emprunt_menu" name="Mes demandes" parent="hr_emprunt.id_emprunt_menu" action="action_demande_emprunt_user_view"
+		sequence="2" />
+
+		<record model="ir.actions.act_window" id="action_demande_emprunt_manager_view">
+			<field name="name">Demandes d'emprunt à valider</field>
+			<field name="res_model">hr.emprunt.demande</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="demande_emprunt_tree_view"/>
+		</record>
+
+		<menuitem id="demande_emprunt_all_menu" name="Demandes d'emprunt à valider" parent="hr_emprunt.id_emprunt_menu" action="action_demande_emprunt_manager_view"
+		groups='hr_emprunt.emprunt_manager' sequence="2" />
+    	
+    </data>
+</openerp>

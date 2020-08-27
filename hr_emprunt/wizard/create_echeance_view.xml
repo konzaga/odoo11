@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+            <record model="ir.ui.view" id="create_echeance_form_view">
+                <field name="name">create.echeance.wizard.form</field>
+                <field name="model">create.echeance.wizard</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Créer échéance" col="2">
+                        <field name="emprunt_id"/>
+                        <newline/>
+	                        <notebook colspan="4">
+		                        <page string="Echéances">
+			                        <field name="echeance_ids" model="tree,form" nolabel="1" colspan="4">                      
+			                        	<tree string="Echéances" editable="top">
+			                        	  <field name="name"/>
+			                        	  <field name="montant_echeance"/>
+			                        	  <field name="date_remboursement_echeance"/>
+			                        	</tree>                       	
+			                        	<form string="Echéances">
+			                        	  <field name="name"/>
+			                        	  <field name="montant_echeance"/>
+			                        	  <field name="date_remboursement_echeance"/>
+			                        	</form>                       	
+			                        </field>
+			                        <group>
+			                        	<button special="cancel" string="Annuler" icon="gtk-cancel" />
+                        				<button name="action_add_echeance" string="Ajouter" type="object" confirm="Veuillez confirmer l'opération" icon="gtk-ok" />
+			                        </group>
+			                    </page>
+			                </notebook>                    
+                    </form>
+                </field>
+            </record>
+              
+           <record model="ir.actions.act_window" id="action_create_echeance_view">
+                <field name="name">Création d'échéance</field>
+                <field name="res_model">create.echeance.wizard</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">form</field>
+                <field name="target">new</field>                
+            </record>
+             
+                    
+        <act_window id="act_emprunt_wizard" name="Créer Echéance"			
+			src_model="hr.emprunt"
+			res_model="create.echeance.wizard"
+			key2="client_action_multi" target="new"
+			view_mode="form"/>
+	
+           <!--   <menuitem id="echeance_create_menu" name="Créer Echéance"
+            parent="hr_emprunt.emprunt_menu" action="action_create_echeance_view" />-->
+    
+    </data>
+</openerp>

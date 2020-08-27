@@ -1,0 +1,126 @@
+h2  {
+    font-weight:bold;
+}
+div#item1 {float: left;width: 50%;}
+tr#sous_total {
+
+}
+th {
+    border: 1px solid gray;
+    text-align: center;
+    background-color: #E6ECEB;
+    height: 20px;
+}
+
+th#col1 {
+    width: 10%;
+}
+th#col2 {
+    width: 40%;
+}
+th#col3 {
+    width: 10%;
+}
+th#col4 {
+    width: 15%;
+}
+
+td {
+    border: 1px solid gray;
+    margin: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+td#parttotal{
+    border-bottom-style: dashed;
+    border-top-style: dashed;
+}
+
+td#colpart2 {border-left: 0px; width:20%; }
+td#colpart1 { border-right: 0px; width: 20%;}
+td#colpart3 {
+    border-top: 0px;
+    border-bottom:0px;
+}
+td#colpart7 {
+    border-top: 0px;
+    border-bottom:0px;
+    color: #FFFFFF;
+}
+td#colpart5 {border-top: 0px; }
+td#colpart4 {
+    text-align: center;
+    background-color: #E6ECEB;
+    width: 60%;
+}
+td#colpart6 {
+    border-top: 0px;
+    border-bottom:0px;
+    font-style: bold;
+    text-align: center;
+}
+td#colpart8 {
+    border-top: 0px;
+    font-style: bold;
+    text-align: center;
+}
+
+td#colpart9 {
+    text-align: center;
+    font-size: 10px;
+}
+div#bas_p {
+    text-align: center;
+    font-size: 10px;
+}
+
+td#colpart10 {
+    border-top: 0px;
+    color: #FFFFFF;
+}
+
+td#blank {
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    width: 70%;
+}
+td#blank1 {
+    background-color: #E6ECEB;
+    font-size: 12px;
+    font-style: bold;
+    text-align: center;
+    width: 30%;
+}
+td#blank2 {
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+    width: 30%;
+}
+tr#part_row {
+    background-color: #E6ECEB;
+    text-align: center;
+    width: 25%;
+}
+tr#part_second {
+    text-align: center;
+    width: 25%;
+}
+td#net_part{
+text-align: center;
+font-style: bold;
+font-size: 22px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Times New Roman", Arial;
+    border-radius: 10px 10px 10px 10px;
+}
+div {
+    font-size: 14px;
+    font-family: "Times New Roman", Arial;
+}

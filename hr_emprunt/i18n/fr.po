@@ -1,0 +1,368 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_emprunt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2013-01-05 11:56+0000\n"
+"PO-Revision-Date: 2013-01-05 11:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_emprunt
+#: selection:hr.emprunt,state:0
+msgid "Confirmed"
+msgstr "Confirmed"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "PRIME DE TRANSPORT"
+msgstr "PRIME DE TRANSPORT"
+
+#. module: hr_emprunt
+#: view:create.echeance.wizard:0
+#: field:create.echeance.wizard,echeance_ids:0
+#: view:hr.emprunt:0
+#: field:hr.emprunt,echeance_ids:0
+msgid "Echéances"
+msgstr "Echéances"
+
+#. module: hr_emprunt
+#: model:ir.model,name:hr_emprunt.model_hr_echeance
+msgid "Echeances des emprunts"
+msgstr "Echeances des emprunts"
+
+#. module: hr_emprunt
+#: view:create.echeance.wizard:0
+msgid "Annuler"
+msgstr "Annuler"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Recherche des emprunts"
+msgstr "Recherche des emprunts"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "PART"
+msgstr "PART"
+
+#. module: hr_emprunt
+#: selection:hr.emprunt,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "EMPLOYES"
+msgstr "EMPLOYES"
+
+#. module: hr_emprunt
+#: model:ir.model,name:hr_emprunt.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "TOTAL COTISATION"
+msgstr "TOTAL COTISATION"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "173"
+msgstr "173"
+
+#. module: hr_emprunt
+#: model:ir.model,name:hr_emprunt.model_hr_emprunt
+msgid "Emprunt des employés"
+msgstr "Emprunt des employés"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,state:0
+msgid "Status"
+msgstr "Status"
+
+#. module: hr_emprunt
+#: field:create.echeance.wizard,emprunt_id:0
+#: field:hr.echeance,emprunt_id:0
+#: view:hr.employee:0
+#: view:hr.emprunt:0
+#: model:ir.actions.act_window,name:hr_emprunt.action_emprunt_view
+msgid "Emprunt"
+msgstr "Emprunt"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Employé"
+msgstr "Employé"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "Heure :"
+msgstr "Heure :"
+
+#. module: hr_emprunt
+#: model:ir.model,name:hr_emprunt.model_echeance_memory
+msgid "echeance.memory"
+msgstr "echeance.memory"
+
+#. module: hr_emprunt
+#: field:echeance.memory,name:0
+#: field:hr.echeance,name:0
+msgid "Libellé"
+msgstr "Libellé"
+
+#. module: hr_emprunt
+#: field:echeance.memory,montant_echeance:0
+#: field:hr.echeance,montant_echeance:0
+#: field:hr.emprunt,montant_emprunt:0
+msgid "Montant"
+msgstr "Montant"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "SALAIRE DE BASE"
+msgstr "SALAIRE DE BASE"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,name:0
+msgid "Libellé de l'emprunt"
+msgstr "Libellé de l'emprunt"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "CHARGES PATRONALES"
+msgstr "CHARGES PATRONALES"
+
+#. module: hr_emprunt
+#: model:ir.actions.act_window,name:hr_emprunt.action_create_echeance_view
+msgid "Création d'échéance"
+msgstr "Création d'échéance"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "Avant clôture mensuelle"
+msgstr "Avant clôture mensuelle"
+
+#. module: hr_emprunt
+#: field:hr.employee,dette:0
+msgid "Dette a rembourser"
+msgstr "Dette a rembourser"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "Date du jour :"
+msgstr "Date du jour :"
+
+#. module: hr_emprunt
+#: model:ir.actions.report.xml,name:hr_emprunt.emprunt_report
+msgid "Echéancier"
+msgstr "Echéancier"
+
+#. module: hr_emprunt
+#: constraint:hr.echeance:0
+msgid "Le montant de l'échéance doit être supérieur à 0 "
+msgstr "Le montant de l'échéance doit être supérieur à 0 "
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "AVANCE DEDUITE"
+msgstr "AVANCE DEDUITE"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Liste des emprunts"
+msgstr "Liste des emprunts"
+
+#. module: hr_emprunt
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr "Erreur ! Vous ne pouvez pas créer de hiérarchie d'employés récursives."
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "SURSALAIRE"
+msgstr "SURSALAIRE"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "TOTAL HEURES SUP."
+msgstr "TOTAL HEURES SUP."
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Dates"
+msgstr "Dates"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "CN"
+msgstr "CN"
+
+#. module: hr_emprunt
+#: field:hr.employee,echeance_count:0
+msgid "Somme totale due"
+msgstr "Somme totale due"
+
+#. module: hr_emprunt
+#: field:hr.echeance,statut_echeance:0
+#: field:hr.emprunt,statut_emprunt:0
+msgid "Reglé"
+msgstr "Reglé"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "IS"
+msgstr "IS"
+
+#. module: hr_emprunt
+#: constraint:hr.employee:0
+msgid "Error ! You cannot select a department for which the employee is the manager."
+msgstr "Erreur ! Vous ne pouvez pas sélectionner un département dont l'employé est le responsable."
+
+#. module: hr_emprunt
+#: view:create.echeance.wizard:0
+msgid "Ajouter"
+msgstr "Ajouter"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "TOTAUX / EMPLOYE"
+msgstr "TOTAUX / EMPLOYE"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Recherche par..."
+msgstr "Recherche par..."
+
+#. module: hr_emprunt
+#: model:ir.model,name:hr_emprunt.model_create_echeance_wizard
+msgid "create.echeance.wizard"
+msgstr "create.echeance.wizard"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+#: field:hr.emprunt,notes:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,remaining_emprunt:0
+msgid "Taux remb. restant"
+msgstr "Taux remb. restant"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "Edition en CFA"
+msgstr "Edition en CFA"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "CNPS"
+msgstr "CNPS"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,date_echeance:0
+msgid "Date d'échéance"
+msgstr "Date d'échéance"
+
+#. module: hr_emprunt
+#: field:hr.employee,emprunt_ids:0
+#: view:hr.emprunt:0
+msgid "Emprunts"
+msgstr "Emprunts"
+
+#. module: hr_emprunt
+#: view:create.echeance.wizard:0
+msgid "Créer échéance"
+msgstr "Créer échéance"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,employee_id:0
+msgid "Employe"
+msgstr "Employe"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "LIVRE DE PAIE MENSUEL"
+msgstr "LIVRE DE PAIE MENSUEL"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "IGR"
+msgstr "IGR"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "TOTAL BRUT"
+msgstr "TOTAL BRUT"
+
+#. module: hr_emprunt
+#: model:ir.ui.menu,name:hr_emprunt.emprunt_menu
+#: model:ir.ui.menu,name:hr_emprunt.emprunts_menu
+msgid "Gestion des emprunts"
+msgstr "Gestion des emprunts"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "HEURES NORMALES"
+msgstr "HEURES NORMALES"
+
+#. module: hr_emprunt
+#: model:ir.actions.act_window,name:hr_emprunt.act_emprunt_wizard
+#: model:ir.ui.menu,name:hr_emprunt.echeance_create_menu
+msgid "Créer Echéance"
+msgstr "Créer Echéance"
+
+#. module: hr_emprunt
+#: report:emprunt:0
+msgid "NET A PAYER"
+msgstr "NET A PAYER"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Mark as Done"
+msgstr "Mark as Done"
+
+#. module: hr_emprunt
+#: field:echeance.memory,date_remboursement_echeance:0
+#: field:hr.echeance,date_remboursement_echeance:0
+msgid "Date de remboursement"
+msgstr "Date de remboursement"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Reset To draft"
+msgstr "Reset To draft"
+
+#. module: hr_emprunt
+#: selection:hr.emprunt,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: hr_emprunt
+#: field:echeance.memory,wizard_id:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: hr_emprunt
+#: field:hr.emprunt,date_emprunt:0
+msgid "Date d'emprunt"
+msgstr "Date d'emprunt"
+
+#. module: hr_emprunt
+#: view:hr.emprunt:0
+msgid "Confirmer"
+msgstr "Confirmer"
+
+#. module: hr_emprunt
+#: view:create.echeance.wizard:0
+msgid "Veuillez confirmer l'opération"
+msgstr "Veuillez confirmer l'opération"
+

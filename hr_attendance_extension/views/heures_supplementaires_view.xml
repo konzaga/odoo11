@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<record model="ir.ui.view" id="heure_supp_tree_view">
+			<field name="name">hr.attendance.heure.supp.tree</field>
+			<field name="model">hr.attendance.heure.supp</field>
+			<field name="arch" type="xml">
+				<tree string="Heures Supplémentaires">
+                    <field name="employee_id" string="Employé"/>
+                    <field name="h_date"/>
+                    <field name="nb_heure" widget="float_time"/>
+                    <field name="heure_supp_type_id" string="Type"/>
+                    <field name="state" string="Etat"/>
+				</tree>
+			</field>
+	</record>
+
+	<record model="ir.ui.view" id="heure_supp_type_tree_view">
+			<field name="name">hr.attendance.heure.supp.type.tree</field>
+			<field name="model">hr.attendance.heure.supp.type</field>
+			<field name="arch" type="xml">
+				<tree string="Type">
+                    <field name="name" string="Type"/>
+                    <field name="code" string="Code"/>
+                    <field name="description" string="Description"/>
+				</tree>
+			</field>
+	</record>
+
+	<record model="ir.ui.view" id="heure_supp_form_view">
+			<field name="name">hr.attendance.heure.supp.form</field>
+			<field name="model">hr.attendance.heure.supp</field>
+			<field name="arch" type="xml">
+				<form string="Heures Supplémentaires">
+					<header>
+							<button name="action_validate" type="object" string="Confirmer" states="draft" class="oe_highlight" groups="hr.group_hr_manager"/>
+							<button name="action_refuse" type="object" string="Refuser" states="draft" groups="hr.group_hr_manager"/>
+							<button name="action_draft" type="object" string="Mettre en brouillon" states="confirmed"/>
+							<field name="state" widget="statusbar" statusbar_visible="draft,confirmed,cancel" />
+					</header>
+					<sheet>
+						<group>
+							<group>
+								<field name="employee_id" string="Employé"/>
+								<field name="heure_supp_type_id" string="Type" option="{'no_create_edit': True}"/>
+							</group>
+							<group>
+								<field name="h_date"/>
+								<field name="nb_heure" widget="float_time"/>
+							</group>
+						</group>
+						<group>
+							<field name="description"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+	</record>
+
+	<record model="ir.ui.view" id="heure_supp_type_form_view">
+			<field name="name">hr.attendance.heure.supp.type.form</field>
+			<field name="model">hr.attendance.heure.supp.type</field>
+			<field name="arch" type="xml">
+				<form string="Types Heures Supplémentaires">
+					<sheet>
+						<group>
+							<group>
+								<field name="name" string="Type"/>
+								<field name="code" string="Code"/>
+							</group>
+							<group>
+								<field name="description"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+	</record>
+
+    <record model="ir.actions.act_window" id="action_heure_supp_view">
+			<field name="name">Heures Supplémentaires</field>
+			<field name="res_model">hr.attendance.heure.supp</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="heure_supp_tree_view"/>
+	</record>
+
+
+    <record model="ir.actions.act_window" id="action_heure_supp_type_view">
+			<field name="name">Type heure supplémentaire</field>
+			<field name="res_model">hr.attendance.heure.supp.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="heure_supp_type_tree_view"/>
+	</record>
+
+
+	<menuitem id="heure_supp_menu" parent="hr_attendance.menu_hr_attendance_root"
+          name="Gestion des heures supplémentaires" sequence="20"
+          groups="hr_attendance.group_hr_attendance_user"
+          action="action_heure_supp_view"/>
+
+	<menuitem id="heure_supp_menu" parent="hr_attendance.menu_hr_attendance_root"
+          name="Gestion des heures supplémentaires" sequence="20"
+          groups="hr_attendance.group_hr_attendance_user"
+          action="action_heure_supp_view"/>
+
+
+	<menuitem id="heure_supp_menu" parent="hr_attendance.menu_hr_attendance_root"
+          name="Gestion des heures supplémentaires" sequence="20"
+          groups="hr_attendance.group_hr_attendance_user"
+          action="action_heure_supp_view"/>
+
+
+
+	<menuitem id="hr_attendance.menu_hr_attendance_settings" name="Configuration" parent="hr_attendance.menu_hr_attendance_root"
+        sequence="99" groups="hr_attendance.group_hr_attendance_manager"/>
+
+
+    <menuitem id="menu_heure_supp_type" name="Type d'heure supp"
+			  parent="hr_attendance.menu_hr_attendance_settings" sequence="15"
+			  groups="hr_attendance.group_hr_attendance_user" action="action_heure_supp_type_view"/>
+</data>
+</odoo>

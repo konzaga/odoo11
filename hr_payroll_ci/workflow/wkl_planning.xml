@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Workflow planning-->
+    	<record id="workflow_planningbasic" model="workflow">
+    		<field name="name">planning.basic</field>
+    		<field name="osv">hr.workdays.planning.batch</field>	
+    	</record>
+    		<!-- Workflow planning activities -->
+    		<record id="act_planning_draft" model="workflow.activity">
+    			<field name="name">draft</field>
+    			<field name="wkf_id" ref="workflow_planningbasic"></field> 
+    			<field name="kind">function</field>
+    			<field name="action">action_draft()</field>
+    			<field name="flow_start">True</field>   		
+    		</record>
+    		<record id="act_planning_confirmed" model="workflow.activity">
+    			<field name="name">confirmed</field>
+    			<field name="wkf_id" ref="workflow_planningbasic"></field> 
+    			<field name="kind">function</field>
+    			<field name="action">action_confirm()</field>   		
+    		</record>
+    		<record id="act_planning_done" model="workflow.activity">
+    			<field name="name">done</field>
+    			<field name="wkf_id" ref="workflow_planningbasic"></field> 
+    			<field name="kind">function</field>
+    			<field name="action">action_done()</field>   		
+    		</record>
+    		
+    	    <!-- Worflow planning transition -->
+    	    <record id="trans_planning_0" model="workflow.transition">
+	            <field name="act_from" ref="act_planning_draft"/>
+	            <field name="act_to" ref="act_planning_confirmed"/>
+	            <field name="signal">signal_confirm</field>
+	            <field name="condition">True</field>
+            </record>
+            <record id="trans_planning_1" model="workflow.transition">
+	            <field name="act_from" ref="act_planning_confirmed"/>
+	            <field name="act_to" ref="act_planning_done"/>
+	            <field name="signal">signal_done</field>
+	            <field name="condition">True</field>
+            </record>
+            <record id="trans_planning_2" model="workflow.transition">
+	            <field name="act_from" ref="act_planning_done"/>
+	            <field name="act_to" ref="act_planning_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+            <record id="trans_planning_3" model="workflow.transition">
+	            <field name="act_from" ref="act_planning_confirmed"/>
+	            <field name="act_to" ref="act_planning_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+    </data>
+</openerp>

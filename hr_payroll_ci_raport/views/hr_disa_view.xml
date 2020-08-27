@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_disa_tree_view">
+                <field name="name">hr.disa.tree</field>
+                <field name="model">hr.disa</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Livre de paie">
+                        <field name="name"/>
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </tree>
+                </field>
+            </record>
+
+
+            <record model="ir.ui.view" id="hr_disa_form_view">
+                <field name="name">hr.disa.form</field>
+                <field name="model">hr.disa</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="DISA">
+                    	<header>
+                    		<button name="get_employee" string="Calculer" type="object"/>
+                    	</header>
+                        <group colspan="4">
+                            <field colspan="2" name="name"/>
+                            <group>
+                                <field colspan="2" name="start_date"/>
+                            </group>
+                            <group>
+                                <field colspan="2" name="end_date" />
+                            </group>
+                        </group>
+                        <field name="line_ids" readonly="1">
+                            <tree>
+                                <field name="name"/>
+                                <field name="num_cnps"/>
+                                <field name="year_birth"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="type_salary"/>
+                                <field name="brut_annual"/>
+                                <field name="brut_annuel_cnps"/>
+                                <field name="brut_annuel_other"/>
+                                <field name="code_cotisation_employer"/>
+                                <field name="observation"/>
+                            </tree>
+
+                        </field>
+                    </form>
+                </field>
+            </record>
+
+           <record model="ir.actions.act_window" id="action_hr_disa_tree_view">
+                <field name="name">DISA</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.disa</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+            <menuitem id="disa_menu_id" name="DISA" parent="hr_payroll_ci_raport.menu_hr_payroll_menu" action="action_hr_disa_tree_view"/>
+
+    </data>
+</openerp>

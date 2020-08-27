@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2012 Veone - support.veone.net
+# Author: Veone
+#
+# Fichier du module hr_emprunt
+# ##############################################################################  -->
+<odoo>
+	<data>
+
+        <!--==========-->
+        <!--Advance salary-->
+        <!--==========-->
+		<record model="ir.ui.view" id="hr_advance_salary_tree_view">
+			<field name="name">hr.advance.salary.tree</field>
+			<field name="model">hr.advance.salary</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree >
+					<field name="name"/>
+					<field name="employee_id"/>
+					<field name="amount"/>
+					<field name="date"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_advance_salary_form_view">
+			<field name="name">hr.advance.salary.form_view</field>
+			<field name="model">hr.advance.salary</field>
+			<field name="arch" type="xml">
+				<form string="Avances sur salaire">
+					<header>
+						<button name="action_submit" string="Soumettre aux RH" type="object" states="draft" />
+						<button name="action_done" string="Valider" type="object" states="submit" />
+						<button name="action_cancel" string="Annuler" type="object" states="submit,done" />
+						<button name="action_reject" string="Annuler" type="object" states="submit,done" />
+						<button name="action_draft" string="Mettre en brouillon" type="object" states="cancel" />
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+						<h1>
+							<field name="name" />
+						</h1>
+						<group >
+							<group>
+								<field name="employee_id" />
+								<field name="date" />
+							</group>
+							<group>
+								<field name="amount" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_advance_salary_view">
+			<field name="name">Avance sur salaire</field>
+			<field name="res_model">hr.advance.salary</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="hr_advance_salary_menu" name="Avances sur salaire" parent="id_emprunt_menu" action="action_hr_advance_salary_view"
+				  sequence="100"/>
+
+	</data>
+</odoo>

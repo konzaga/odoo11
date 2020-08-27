@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"heure_supp_manager_access","hr.attendance.heure.supp.manager","model_hr_attendance_heure_supp","hr.group_hr_manager",1,1,1,1
+"heure_supp_type_manager_access","hr.attendance.heure.supp.manager","model_hr_attendance_heure_supp_type","hr.group_hr_manager",1,1,1,1
+"heure_supp_user_access","hr.attendance.heure.supp.user","model_hr_attendance_heure_supp","hr.group_hr_user",1,0,0,0

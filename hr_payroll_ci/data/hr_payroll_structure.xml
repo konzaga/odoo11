@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="structure_cdd" model="hr.payroll.structure">
+            <field name="code">CDD</field>
+            <field name="name">Contrat à durée determinée</field>
+            <field eval="[(6, 0, [ref('hr_salary_rule20'),ref('hr_salary_rule31'),ref('hr_salary_rule0'), ref('hr_salary_rule1'),ref('hr_salary_rule2'),ref('hr_salary_rule3'),ref('hr_salary_rule4'),ref('hr_salary_rule5'),ref('hr_salary_rule6'),
+ref('hr_salary_rule7'),ref('hr_salary_rule8'),ref('hr_salary_rule9'),ref('hr_salary_rule10'),ref('hr_salary_rule11'),ref('hr_salary_rule12'),ref('hr_salary_rule13'),ref('hr_salary_rule14'),ref('hr_salary_rule15'),ref('hr_salary_rule16'),ref('hr_salary_rule17'),ref('hr_salary_rule18'),
+ref('hr_salary_rule19'),ref('hr_salary_rule21'),ref('hr_salary_rule22'),ref('hr_salary_rule23'),ref('hr_salary_rule24'),ref('hr_salary_rule25'),ref('hr_salary_rule26'),ref('hr_salary_rule27'),ref('hr_salary_rule28'),ref('hr_salary_rule29'),ref('hr_salary_rule30'),ref('hr_salary_rule32'),
+ref('hr_salary_rule33'),ref('hr_salary_rule34'),ref('hr_salary_rule35'),ref('hr_salary_rule36'),ref('hr_salary_rule37'),ref('hr_salary_rule38'),ref('hr_salary_rule39'),ref('hr_salary_rule40'),ref('hr_salary_rule42')])]" name="rule_ids"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+	</data>
+</openerp>

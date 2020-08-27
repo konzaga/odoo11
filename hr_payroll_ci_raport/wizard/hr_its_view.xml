@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <record id="hr_its_view" model="ir.ui.view">
+        <field name="name">hr.its.form.view</field>
+        <field name="model">hr.its</field>
+        <field name="arch" type="xml">
+            <form string="ITS">
+                <!--<group>-->
+                    <!--<field name="name" />-->
+                <!--</group>-->
+                <group col="4">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group col="4">
+                    <field name="company_id"/>
+                </group>
+                <footer>
+                    <button string="Imprimer" name="check_report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_its" model="ir.actions.act_window">
+        <field name="name">Rapports ITS</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.its</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="hr_its_menu" name="ITS" sequence="50" parent="menu_hr_payroll_menu"
+            action="action_hr_its"/>
+</data>
+</odoo>

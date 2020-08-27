@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="cnps_trimestriel_report">
+            <t t-call="web.external_layout">
+                <t t-set="data_report_margin_top" t-value="1"/>
+                <t t-set="data_report_margin_left" t-value="10"/>
+                <t t-set="data_report_margin_right" t-value="10"/>
+                <t t-set="data_report_margin_bottom" t-value="1"/>
+                <t t-set="data_report_header_spacing" t-value="2"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+
+                <t t-foreach="docs" t-as="o">
+                    <div class="page" style=" font-family:Times, Times New Roman, Georgia, serif;">
+                        <div class="row">
+                            <div class="col-xs-2" >
+
+                                <div class="row" style="border:3px solid black;
+                                            padding-top:17px;
+                                            padding-bottom:26px;
+                                            padding-right:0px
+                                            padding-left:15px;
+                                ">
+                                <img src="/hr_payroll_ci_raport/static/img/cnps.png" id="img1"
+                                     style="max-height: 100px;
+                                     max-width: 300px;
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    padding:auto;"
+                                />
+                                </div>
+                            </div>
+
+                            <div class="col-xs-8">
+                            <div class="row" style=" font-family:Times, Times New Roman, Georgia, serif;">
+                                <div class="col-xs-12"
+                                style="text-align:center;
+                                        border-bottom: 2px solid black;
+                                        border-top: 3px solid black;
+                                        border-left: 1px solid black;
+                                        border-right: 1px solid black;
+                                        font-size:17px;
+                                        font-family: Times, Times New Roman, Georgia, serif;
+                                        padding:4px 0px;
+                                        background-color: #B0C4DE;">
+                                <strong>ENREGISTREMENT</strong></div>
+                                <div class="col-xs-12"
+                                style="border-bottom: 3px solid black;
+                                        border-right: 1px solid black;
+                                        border-left: 1px solid  black;
+                                        border-top: 1px solid black;
+                                        font-family: Times, Times New Roman, Georgia, serif;
+                                        padding:0px 0px;
+                                        font-size:19px;
+                                        text-align:center;">
+                                <br/><strong>APPEL DE COTISATION TRIMESTRIEL</strong><br/><br/>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="col-xs-2 " style="border:1px solid black;">
+                                <div class="row text-left" style="
+                                             border:2px solid black;
+                                            padding-top:17px;
+                                            padding-bottom:33px;
+                                            padding-right:0px
+                                            padding-left:0px;
+                                             font-family: Times, Times New Roman, Georgia, serif;">
+                                    <strong><span style="color:#5c85d6; font-size:16px; margin-left:0;">Réf. :<span t-field="o.seq_cnps_trim"/></span></strong><br/>
+                                    <strong><span style="color:#5c85d6; font-size:16px;">Version : 04</span></strong><br/>
+                                    <strong><span style="font-size:16px;">Page 1/1</span></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:2px;">
+                            <div class="col-xs-12">
+                                <div class="col-xs-5">
+                                    <table class="table table-condensed">
+                                        <tr>
+                                            <td style="text-align:center;border:1px solid black;"><strong>Code Établissement</strong></td>
+                                            <td style="text-align:center;border:1px solid black;"><strong>Code Activité</strong></td>
+                                            <td style="text-align:center;border:1px solid black;"><strong>N°Employeur</strong></td>
+                                            <td style="text-align:center;border:1px solid black;"><strong>Période</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;border:1px solid black;height: 20px;"></td>
+                                            <td style="text-align:center;border:1px solid black;"></td>
+                                            <td style="text-align:center;border:1px solid black;"></td>
+                                            <td style="text-align:center;border:1px solid black;"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-5">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="col-xs-4">
+                                                <strong>Raison sociale</strong>
+                                            </div>
+                                            <div class="col-xs-8" style="border: 1px solid black;">
+                                                <span t-field="user.company_id.name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-xs-12">
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-6"><strong>Adresse</strong></div>
+                                                <div class="col-xs-6" style="border:1px solid black;margin-right:-80px"><span t-field="user.company_id.num_cnps"/></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-4"><strong>Tél</strong></div>
+                                                <div class="col-xs-8" style="border:1px solid black;margin-right:-20px"><span t-field="user.company_id.phone"/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-4"></div>
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-6">
+                                    <div class="col-xs-9" style="font-style:8px;">
+                                    <strong>TOTAL SALAIRES BRUTS PAYES AU COURS DE LA PERIODE :</strong>
+                                    </div>
+                                    <div class="col-xs-3" style="border: 1px solid black;">
+                                        <span t-esc="format_amount( o.total_brut)"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12" style="margin-top:-12px;">
+                                <table class="table table-condensed table-bordered" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td rowspan="3" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;"><strong>CATEGORIES DE SALAIRES</strong></td>
+                                        <td class="text-left" style="border: 1px solid black;font-size:8px;" colspan="3"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_1']['mois']"/></strong></td>
+                                        <td class="text-left" style="border: 1px solid black;font-size:8px;" colspan="3"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_2']['mois']"/></strong></td>
+                                        <td class="text-left" style="border: 1px solid black;font-size:8px;" colspan="3"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_3']['mois']"/></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">NOMBRE DE <br/>SALAIRES</td>
+                                        <td colspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;"><strong>SALAIRES BRUTS SOUMIS A COTISATIONS</strong></td>
+                                        <td rowspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">NOMBRE DE <br/>SALAIRES</td>
+                                        <td colspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">SALAIRES BRUTS SOUMIS A COTISATIONS</td>
+                                        <td rowspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">NOMBRE DE <br/>SALAIRES</td>
+                                        <td colspan="2" style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">SALAIRES BRUTS SOUMIS A COTISATIONS</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">REGIME DE RETRAITE<br/> <strong>Plafond = 1.647.315</strong></td>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">
+                                            REGIME DES ASSURANCES MATERNITE,<br/> DES PRESTATIONS FAMILIALES ET DES <br/>
+                                            ACCIDENTS DU TRAVAIL<br/><strong>Plafond = 3231 F par jour ou <br/>70.000 par mois</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">REGIME DE RETRAITE<br/> Plafond = 1.647.315 </td>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">
+                                            REGIME DES ASSURANCES MATERNITE,<br/> DES PRESTATIONS FAMILIALES ET DES <br/>
+                                            ACCIDENTS DU TRAVAIL<br/><strong>Plafond = 3231 F par jour ou <br/>70.000 par mois</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">REGIME DE RETRAITE<br/> Plafond = 1.647.315 </td>
+                                        <td style="border: 1px solid black;font-size:8px;text-align: center;vertical-align:middle;">
+                                            REGIME DES ASSURANCES MATERNITE,<br/> DES PRESTATIONS FAMILIALES ET DES <br/>
+                                            ACCIDENTS DU TRAVAIL<br/><strong>Plafond = 3231 F par jour ou <br/>70.000 par mois</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:9px;"><strong>Horaires, journaliers et occasionnels <br/>inférieurs ou égaux à 3231 F par jour</strong></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 0, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 0, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 0, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 0, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 0, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 0, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 0, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 0, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 0, 'cotisation')"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:9px;"><strong>Horaires, journaliers et occasionnels <br/>supérieurs ou égaux à 3231 F par jour</strong></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 1, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 1, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 1, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 1, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 1, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 1, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 1, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 1, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 1, 'cotisation')"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:9px;"><strong>Mensuels inférieurs ou égaux à 70.000 F <br/>par mois</strong></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 2, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 2, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 2, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 2, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 2, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 2, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 2, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 2, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 2, 'cotisation')"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size:9px;border: 1px solid black;">
+                                            <strong>Mensuels supérieurs à 70.000 F par mois et <br/>inférieurs ou égaux à 1.647.315 F par mois</strong>
+                                        </td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 3, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 3, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 3, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 3, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 3, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 3, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 3, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 3, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 3, 'cotisation')"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:9px;"><strong>Mensuels supérieurs à 1.647.315 F par  mois</strong></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 4, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 4, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_1']['lines'], 4, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 4, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 4, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_2']['lines'], 4, 'cotisation')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 4, 'nombre')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 4, 'retraite')"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="compute_all(data['periode_3']['lines'], 4, 'cotisation')"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;font-size:9px;text-align: right;"><strong>Total</strong></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_1']['totaux']['nombre'])"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_1']['totaux']['retraite'])"/></td>
+                                        <td style="background-color:#D9D9D9;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_1']['totaux']['cotisation'])"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_2']['totaux']['nombre'])"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_2']['totaux']['retraite'])"/></td>
+                                        <td style="background-color:#D9D9D9;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_2']['totaux']['cotisation'])"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_3']['totaux']['nombre'])"/></td>
+                                        <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_3']['totaux']['retraite'])"/></td>
+                                        <td style="background-color:#D9D9D9;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['periode_3']['totaux']['cotisation'])"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-xs-12" style="margin-top:-20px;">
+                                    <div class="col-xs-6">
+                                        <div class="col-xs-6" style="text-align:left; width:50%;font-size:smaller;">
+                                            <strong>Cumul salaires bruts soumis à cotisations au titre du Régime de Retraite</strong>
+                                        </div>
+                                        <div class="col-xs-6" style="border: 1px solid black; height:20px; text-align:center;">
+                                            <span t-field="o.cumul_salaire_retraite"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="col-xs-6" style="text-align:left; width:50%;font-size:smaller;">
+                                            <strong>Cumul salaires bruts soumis à cotisations au titre des Régimes
+                                                des Prestations Familiales et des Accidents du Travail</strong>
+                                        </div>
+                                        <div class="col-xs-6" style="border: 1px solid black; height:20px; text-align:center;">
+                                            <span t-field="o.cumul_salaire_prestafami_acctrav"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-8" style="margin-top:-20px;">
+                                        <table class="table table-condensed" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="border-right: 1px solid black;border-left:hidden; border-top:hidden;border-bottom: 1px solid black" rowspan="2"></td>
+                                                <td colspan="2" style="font-size:8px;text-align: left;border:1px solid black;"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_1']['mois']"/></strong></td>
+                                                <td colspan="2" style="font-size:8px;text-align: left;border:1px solid black;"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_2']['mois']"/></strong></td>
+                                                <td colspan="2" style="font-size:8px;text-align: left;border:1px solid black;"><strong>MOIS DE: &#032;&#032;<span t-esc="data['periode_3']['mois']"/></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Nombre</strong></td>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Salaires Bruts</strong></td>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Nombre</strong></td>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Salaires Bruts</strong></td>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Nombre</strong></td>
+                                                <td style="font-size:8px;text-align: center;border:1px solid black;"><strong>Salaires Bruts</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:8px;border:1px solid black;">Personnes ne cotisant pas au Régime de la Retraite</td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:8px;border:1px solid black">Personnes pour qui l’employeur ne cotise pas au Régime des Prestations Familiales</td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                                <td style="border:1px solid black;font-size:8px"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div style="font-weight:bold;margin-top:-20px;">
+                                            <p style="text-align:center;font-size:smaller">Bordereau certifié exact,</p>
+                                            <p style="text-align:center;font-size:smaller">A .............................., le...............</p>
+                                            <p style="text-align:center;font-size:smaller">Signature et cachet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6" style="margin-top:-10px;">
+                                            <p style="font-weight:bold;font-size:9px;"><strong>DECOMPTE DES COTISATIONS DUES</strong></p>
+                                            <table class="table table-condensed" style="margin-top:-10px;">
+                                                <tr>
+                                                    <td style="font-size:9px;border:1px solid black;"><strong>Rubriques</strong></td>
+                                                <td style="font-size:9px;border:1px solid black;text-align:center;"><strong>SALAIRES SOUMIS A COTISATIONS</strong></td>
+                                                <td style="font-size:9px;border:1px solid black;text-align:center;"><strong>TAUX</strong></td>
+                                                <td style="font-size:9px;border:1px solid black;text-align:center;"><strong>MONTANTS (Francs CFA)</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:9px;border:1px solid black;"><strong>Assurance Maternité</strong></td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['cotisation_p'])"/>&#032;x</td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-field="user.company_id.taux_assurance_mater"/> % &#032;= </td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( o.assurance_maternite)"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:9px;border:1px solid black;"><strong>Prestations Familiales</strong></td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['cotisation_p'])"/>&#032;x</td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-field="user.company_id.taux_prestation_familiale"/> % &#032;= </td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( o.prestation_familiale)"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:9px;border:1px solid black;"><strong>Accidents du Travail</strong></td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( data['cotisation_p'])"/>&#032;x</td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-field="user.company_id.taux_accident_travail"/> % &#032;= </td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( o.accident_travail)"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:9px; border:1px solid black;"><strong>Régime de Retraite</strong></td>
+                                                    <td style="font-size:9px; border:1px solid black;text-align:center;"> <span t-esc="format_amount( data['retraite_p'])"/>&#032;x</td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"> &#032;= </td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( o.regime_retraite)"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" style="text-align:right;border-left:hidden;font-size:9px; border-bottom:hidden;"><strong>TOTAL COTISATIONS A PAYER</strong></td>
+                                                    <td style="font-size:9px;border:1px solid black;text-align:center;"><span t-esc="format_amount( o.total_cotisation)"/></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-xs-6" style="margin-top:-10px;">
+                                            <p style="text-align:center;font-size:9px;">ATTENTION</p>
+                                            <p style="font-size:11px;margin-left:100px;margin-top:-10px;">
+                                                Il est vivement conseillé d’annexer à la présente déclaration
+                                                votre titre de paiement faute de quoi <br/>vous serez responsable du retard des pertes
+                                                et des erreurs de comptabilisation.
+                                            </p>
+                                            <p style="font-size:11px;margin-left:100px;margin-top:-10px;">
+                                                Le titre de paiement (de préférence un chèque bancaire)
+                                                doit être libellé à l’ordre de l’IPS-CNPS,<br/> même en l’absence de tout paiement.
+                                            </p>
+                                            <p style="font-size:11px;margin-left:100px;margin-top:-10px;">
+                                                La présente déclaration doit être dument remplie
+                                                et obligatoirement retournée à la C.N.P.S.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row" >
+                                    <div class="col-xs-12" style="margin-top:-25px;">
+                                        <table class="table table-condensed">
+                                            <tr >
+                                                <td colspan="10" style="text-align:center;border: 1px solid black;font-size:10px;">
+                                                    <strong>CADRE DRESERVE A LA C.N.P.S. (NE RIEN INSCRIRE S.V.P)</strong>
+                                                </td>
+                                            </tr>
+                                            <tr align="center">
+                                                <td style="border: 1px solid black;font-size:9px;"> Code opér. </td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Date de journée</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> N° Pièce</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Période</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Code Virement</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Banque </td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Référence du titre de paiement</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Émission du</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Montant</td>
+                                                <td style="border: 1px solid black;font-size:9px;"> Visa DIRECTEUR</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;height: 20px;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                                <td style="border: 1px solid black;"> </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

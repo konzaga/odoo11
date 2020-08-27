@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="hr_overtime_hs15" model="hr.attendance.heure.supp.type">
+            <field name="name">HEURES SUPPLÉMENTAIRES 15%</field>
+            <field name="code">HS15</field>
+        </record>
+        <record id="hr_overtime_hs50" model="hr.attendance.heure.supp.type">
+            <field name="name">HEURES SUPPLÉMENTAIRES 50%</field>
+            <field name="code">HS50</field>
+        </record>
+        <record id="hr_overtime_hs75" model="hr.attendance.heure.supp.type">
+            <field name="name">HEURES SUPPLÉMENTAIRES 75%</field>
+            <field name="code">HS75</field>
+        </record>
+        <record id="hr_overtime_hs100" model="hr.attendance.heure.supp.type">
+            <field name="name">HEURES SUPPLÉMENTAIRES 100%</field>
+            <field name="code">HS100</field>
+        </record>
+    </data>
+</odoo>

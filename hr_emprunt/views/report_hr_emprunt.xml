@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_echeancier">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+			<t t-set="o" t-value="o.with_context({'lang':user.lang})" />
+            <div class="header">
+            	<style type="text/css">
+					h1  {font-weight:bold;}
+					div#item1 {float: left;width: 50%;}
+					table {
+							border-collapse: collapse;
+							font-size: 12px;
+							width: 100%;
+						}
+					td {
+							border: 1px solid gray;
+						}
+					td#title_part {
+							width: 50%;
+							font-size: 35px;
+							font-style: italic;
+						}
+					td#company{
+							font-size: 12px;
+							padding-left: 5px;
+
+						}
+
+				</style>
+				<table id="header_p">
+				</table>
+			</div>
+			<div class="page">
+				<style type="text/css">
+                    .t0 { width: 100%; font: 11px bold 'Arial';}
+                    .t00{ padding: 15px 15px;}
+                    .t0d0{ width: 20%; border: 0.5px solid white; background-color: #EBEDEF; padding: 10px 10px;}
+                    .t0d1{ width: 40%; border: 0.5px solid white; background-color: #F2F3F4; padding: 5px 5px;}
+                    .t0d2{ width: 20%; border: 0.5px solid white; background-color: #F2F3F4;}
+                    .t1{ width: 100%; font: 11px bold 'Arial';}
+                    th{ border: 0.5px solid black; background-color: #E5E8E8; padding: 5px 5px; text-align: center;}
+                    .t1d1{ width: 50%; border: 0.5px solid black; padding: 5px 5px;}
+                    .t1d2{ width: 30%; border: 0.5px solid black; text-align: right; padding: 5px 5px;}
+                    .t1d3{ width: 20%; border: 0.5px solid black; text-align: right; padding: 5px 5px;}
+				</style>
+                <div class="container">
+                    <table class="t0">
+                        <tr>
+                            <td colspan="4" class="text-center t00"> ECHEANCIER DE PAIEMENT DE <span t-field="o.employee_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td class="t0d0">Employé :</td>
+                            <td class="t0d1"><span t-field="o.employee_id.name"/></td>
+                            <td class="t0d0">Date d'emprunt :</td>
+                            <td class="t0d2"><span t-field="o.date_emprunt"/></td>
+                        </tr>
+                        <tr>
+                            <td class="t0d0">Montant de l'emprunt :</td>
+                            <td class="t0d1"><span t-field="o.montant_emprunt"/></td>
+                            <td class="t0d0">Date de début remboursement :</td>
+                            <td class="t0d2"><span t-field="o.date_debut_remboursement"/></td>
+                        </tr>
+                        <tr>
+                            <td class="t0d0">Taux d'emprunt:</td>
+                            <td class="t0d1"><span t-field="o.taux"/></td>
+                            <td class="t0d0">Période de remboursement :</td>
+                            <td class="t0d1"><span t-field="o.intervalle_echeance"/></td>
+                        </tr>
+                        <tr>
+                            <td class="t0d0">Total à rembourser:</td>
+                            <td class="t0d1"><span t-field="o.total_emprunt"/></td>
+                            <td class="t0d0">Nombre d'écheances :</td>
+                            <td class="t0d1"><span t-field="o.nb_echeance"/></td>
+                        </tr>
+                    </table>
+                    <p></p>
+                    <div class="d1">
+                        <table class="t1">
+                            <tr>
+                                <th>DESCRIPTION</th>
+                                <th>MONTANT en F CFA</th>
+                                <th>DATE DE PAIMENT</th>
+                            </tr>
+                            <tr t-foreach="o.echeance_ids" t-as="echeance">
+                                <td class="t1d1"><span t-field="echeance.name"/></td>
+                                <td class="t1d2"><span t-field="echeance.montant"/></td>
+                                <td class="t1d3"><span t-field="echeance.date_prevu"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+			</div>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

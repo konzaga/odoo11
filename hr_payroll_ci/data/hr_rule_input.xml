@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="hr_rule_input0" model="hr.rule.input">
+			<field name="name">hr_rule_input</field>
+			<field name="code">hr.rule.input</field>
+			<field name="id">1</field>
+			<field name="code">RAVTGN</field>
+			<field name="name">Reprise avantage en nature</field>
+			<field name="input_id" ref="hr_salary_rule3"></field>
+		</record>
+	</data>
+</openerp>

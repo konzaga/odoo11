@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data >
+
+        <record id="disa_sequence" model="ir.sequence">
+        <field name="name">Sequence hr disa</field>
+        <field name="code">hr.payroll.disa</field>
+        <field name="prefix">EN-GIC-</field>
+        <field name="padding">2</field>
+        <field eval="1" name="number_increment"/>
+      </record>
+
+    </data>
+</odoo>

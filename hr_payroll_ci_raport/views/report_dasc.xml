@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_dasc">
+            <t t-call="hr_payroll_ci_raport.external_layout">
+                <t t-set="data_report_margin_top" t-value="3"/>
+                <t t-set="data_report_margin_left" t-value="2"/>
+                <t t-set="data_report_margin_rigth" t-value="2"/>
+                <t t-set="data_report_header_spacing" t-value="2"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+
+                        <div class="row">
+                            <div class="col-xs-2" >
+
+                                <div class="row" style="border:3px solid black;
+                                            padding-top:17px;
+                                            padding-bottom:26px;
+                                            padding-right:0px
+                                            padding-left:15px;
+                                ">
+                                <img src="hr_payroll_ci_raport/static/img/cnps.png"
+                                     style="max-height: 100px;
+                                     max-width: 300px;
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    padding:auto;"
+                                />
+                                </div>
+                            </div>
+
+                            <div class="col-xs-8">
+                                <div class="row" style=" font-family:Times, Times New Roman, Georgia, serif;">
+                                    <div class="col-xs-12"
+                                    style="text-align:center;
+                                            border-bottom: 2px solid black;
+                                            border-top: 3px solid black;
+                                            border-left: 1px solid black;
+                                            border-right: 1px solid black;
+                                            font-size:17px;
+                                            font-family: Times, Times New Roman, Georgia, serif;
+                                            padding:4px 0px;
+                                            background-color: #B0C4DE;">
+                                    <strong>ENREGISTREMENT</strong></div>
+                                    <div class="col-xs-12"
+                                    style="border-bottom: 3px solid black;
+                                            border-right: 1px solid black;
+                                            border-left: 1px solid  black;
+                                            border-top: 1px solid black;
+                                            font-family: Times, Times New Roman, Georgia, serif;
+                                            padding:0px 0px;
+                                            font-size:19px;
+                                            text-align:center;">
+                                    <br/><strong>DECLARATION ANNUELLE DES SALAIRES ET DES COTISATIONS</strong><br/><br/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-2 " style="border:1px solid black;">
+                                <div class="row text-left" style="
+                                             border:2px solid black;
+                                            padding-top:17px;
+                                            padding-bottom:33px;
+                                            padding-right:0px
+                                            padding-left:0px;
+                                             font-family: Times, Times New Roman, Georgia, serif;">
+                                    <strong><span style="color:#5c85d6; font-size:16px; margin-left:0;">Réf. :&#032;<span t-field="o.seq_dasc"/>
+                                        </span></strong><br/>
+                                    <strong><span style="color:#5c85d6; font-size:16px;">Version : 04</span></strong><br/>
+                                    <strong><span style="font-size:16px;">Page : 1/1</span></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:4px;">
+                            <div class="col-xs-4">
+                                <table class="table" style="border:1px solid black;">
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;"><strong>CODE ETABLISSEMENT</strong></td>
+                                        <td style="border:1px solid black;"><strong>CODE ACTIVITE</strong></td>
+                                    </tr>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;"></td>
+                                        <td style="border:1px solid black;"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-xs-8">
+                                <table class="table table-condensed" cellspacing="0" rawspaving="0">
+                                    <tr>
+                                        <td style="border:0;height:10px;"><strong>EMPLOYEUR, RAISON SOCIALE:</strong></td>
+                                        <td style="text-align:left; border:0;"><strong><span
+                                                t-field="user.company_id.name"/></strong></td>
+                                        <td style="border:0;"></td>
+                                        <td style="border:0;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border:0;height:10px;"><strong>ADRESSE POSTALE:</strong></td>
+                                        <td  class="text-left" style="border:0;"> <strong><span t-field="user.company_id.zip"/></strong></td>
+                                        <td class="text-left" style="border:0;"><strong>TEL:</strong></td>
+                                        <td style="border:0;" class="text-center"><strong><span t-field="user.company_id.phone"/></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border:0;height:10px;"><strong>ADRESSE GEOGRAPHIQUE :</strong></td>
+                                        <td class="text-left" style="border:0;"><strong><span t-field="user.company_id.street"/></strong></td>
+                                        <td style="border:0;"></td>
+                                        <td style="border:0;"></td>
+                                     </tr>
+                                    <tr>
+                                        <td style="border:0;height:10px;"><strong>Matricule C.N.P.S</strong></td>
+                                        <td class="text-left" style="border:0;"><strong><span  t-field="user.company_id.num_cnps"/></strong></td>
+                                        <td style="border:0;"></td>
+                                        <td style="border:0;"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-4" style="margin-top:-30px;">
+                                <p style="text-align:left;">  <strong>EXERCICE :&#032;<span t-field="o.date_from"/>--<span t-field="o.date_to"/></strong></p>
+                                <t t-if="o.type_cotisation == 'mens'">
+                                <table class="table table-condensed" style="border:1px solid black;" width="100%" cellspacing="0" rawspaving="0">
+                                    <tr style="border:1px solid black;">
+                                        <td colspan="3"
+                                            style="text-align:center;border:1px solid black;">
+                                        <strong>
+                                            RAPPEL DES COTISATIONS DECLAREES ET DES
+                                        PAIEMENTS EFFECTUES A LA C.N.P.S, DEPUIS LE DEBUT
+                                        DE L’EXERCICE</strong> (il s’agit des cotisations principales)
+
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td width="30%" style=" border:1px solid black; font-size:10px;
+                                        text-align:center; vertical-align: middle;">MOIS OU TRIMESTRE</td>
+                                        <td style="border:1px solid black; font-size:10px; text-align:center; vertical-align: middle;">MONTANT DES COTISATIONS
+                                            DECLARÉES</td>
+                                        <td
+                                                style="border:1px solid black; text-align:center; vertical-align: middle; font-size:10px;">MONTANT DES PAIEMENTS
+                                            EFFECTUES</td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Janvier</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_janvier']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_janvier']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Février</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_fevrier']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_fevrier']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Mars</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_mars']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_mars']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Avril</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_avril']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_avril']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Mai</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_mai']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_mai']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Juin</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_juin']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_juin']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Juillet</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_juillet']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_juillet']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Août</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_aout']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_aout']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Septembre</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_septembre']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_septembre']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Octobre</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_octobre']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_octobre']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Novembre</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_novembre']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_novembre']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;">Décembre</td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_decembre']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_decembre']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border:1px solid black;"><strong>TOTAUX</strong></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['TOTAL_1']))"/></td>
+                                        <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['TOTAL_2']))"/></td>
+                                    </tr>
+                                    <tr class="text-center" style="border:1px solid black;">
+                                        <td style="border-left:hidden;border-bottom:hidden;"></td>
+                                        <td style="border:1px solid black;"><strong>TOTAL I</strong></td>
+                                        <td style="border:1px solid black;"><strong>TOTAL II</strong></td>
+                                    </tr>
+                                </table>
+                                </t>
+                                <t t-if="o.type_cotisation == 'trim'">
+                                    <table class="table" style="border:1px solid black;" width="100%" cellspacing="0" rawspaving="0">
+                                        <tr style="border:1px solid black;">
+                                            <td colspan="3" style="text-align:center;border:1px solid black;">
+                                            <strong>
+                                                RAPPEL DES COTISATIONS DECLAREES ET DES
+                                            PAIEMENTS EFFECTUES A LA C.N.P.S, DEPUIS LE DEBUT
+                                            DE L’EXERCICE</strong> (il s’agit des cotisations principales)
+
+                                            </td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td width="30%" style=" border:1px solid black; font-size:10px;
+                                            text-align:center; vertical-align: middle;">MOIS OU TRIMESTRE</td>
+                                            <td style="border:1px solid black; font-size:10px; text-align:center; vertical-align: middle;">MONTANT DES COTISATIONS
+                                                DECLARÉES</td>
+                                            <td style="border:1px solid black; text-align:center; vertical-align: middle; font-size:10px;">MONTANT DES PAIEMENTS
+                                                EFFECTUES</td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border:1px solid black;">1<sup>er</sup>Trimestre</td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_trimestre_1']))"/></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_trimestre_1']))"/></td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border:1px solid black;">2<sup>ième</sup> Trimestre</td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_trimestre_2']))"/></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_trimestre_2']))"/></td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border:1px solid black;">3<sup>ième</sup>Trimestre</td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_trimestre_3']))"/></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_trimestre_3']))"/></td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border:1px solid black;">4<sup>ième</sup> Trimestre</td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['cotisation_trimestre_4']))"/></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['total_brut_trimestre_4']))"/></td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border:1px solid black;"><strong>TOTAUX</strong></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['TOTAL_1']))"/></td>
+                                            <td style="border:1px solid black;"><span t-esc="format_amount('%i',(data['cnps']['TOTAL_2']))"/></td>
+                                        </tr>
+                                        <tr class="text-center" style="border:1px solid black;">
+                                            <td style="border-left:hidden;border-bottom:hidden;"></td>
+                                            <td style="border:1px solid black;"><strong>TOTAL I</strong></td>
+                                            <td style="border:1px solid black;"><strong>TOTAL II</strong></td>
+                                        </tr>
+                                    </table>
+                                </t>
+                            </div>
+
+                            <div class="col-xs-8">
+                                <br/>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <p style="text-align:center;">
+                                    <strong>COMPLEMENT INDISPENSABLE A LA D. I. S. A.</strong>
+                                        </p>
+                                        <p style="text-align:center;"><strong>
+                                Le document récapitulatif destiné à effectuer la régularisation annuelle des cotisations est à retourner à la C.N.P.S en même
+                                temps que la Déclaration Individuelle de Salaires Annuels (D.I.S.A). Il ne se substitue en aucune façon à l’appel de cotisation
+                                du 4ème trimestre ou du mois de Décembre.
+                                        </strong></p>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:-20px">
+                                    <table class="table table-condensed" style="font-size:11px;">
+                                        <tr class="text-center">
+                                            <td style="border:1px solid black;"><strong>REGIMES</strong></td>
+                                            <td style="border:1px solid black;"><strong>TAUX</strong></td>
+                                            <td style="border:1px solid black;"><strong>TOTAL SALAIRES ANNUELS<br/>
+                                                SOUMIS A COTISATIONS
+                                             </strong></td>
+                                            <td style="border:1px solid black;"><strong>COTISATIONS ANNUELLES</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;"><strong>ASSURANCE MATERNITE</strong></td>
+                                            <td style="border:1px solid black;text-align:center;">0,75%</td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['assurance_maternite']))"/></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['annuelle_assurance_maternite']))"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;"><strong>PRESTATIONS FAMILIALES</strong></td>
+                                            <td style="border:1px solid black;text-align:center;">5%</td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['prestation_familiale']))"/></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['annuelle_prestation_familiale']))"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;"><strong>ACCIDENTS DU TRAVAIL</strong></td>
+                                            <td style="border:1px solid black;text-align:center;"></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['accident_travail']))"/></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['annuelle_accident_travail']))"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;"><strong>REGIME GENERAL DE RETRAITE (*)
+                                            </strong></td>
+                                            <td style="border:1px solid black;text-align:center;"></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['restraite']))"/></td>
+                                            <td style="border:1px solid black;text-align:center;"><span t-esc="format_amount('%i',(data['disa']['annuelle_restraite']))"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td style=" text-align: center;" colspan="2" rowspan="4">A..........................,le ..........................<br/><br/>Signature et Cachet</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;font-size:10px;"><strong>
+                                                TOTAL III <br/>
+                                                Cotisations annuelles à déclarer</strong></td>
+                                            <td style="border:1px solid black;text-align:center;">
+                                                <span t-esc="format_amount('%i',(data['disa']['TOTAL_3']))"/>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;font-size:10px;">
+                                                <strong>
+                                                TOTAL IV = TOTAL III - TOTAL I<br/>
+                                                (Total IV = Ecart de declaration)
+                                                </strong>
+                                            </td>
+                                            <td style="border:1px solid black;text-align:center;">
+                                                <span t-esc="format_amount('%i',(data['disa']['TOTAL_3'] - data['cnps']['TOTAL_1']))"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black;font-size:10px;">
+                                                <strong>TOTAL V = TOTAL I - TOTAL II<br/>
+                                                 (Total V = Ecart de paiement)</strong>
+                                            </td>
+                                            <td style="border:1px solid black;text-align:center;">
+                                                <span t-esc="format_amount('%i',((abs(data['cnps']['TOTAL_1'] - data['cnps']['TOTAL_2']))))"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:0;"></td>
+                                            <td style="border:0;"></td>
+                                            <td style="border:0;"></td>
+                                            <td style="border:0;"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border:1px solid black; line-height: 100%;">
+                                                Afin de solder votre compte à la CNPS pour<br/>
+                                                l’exercice qui vient de finir, vous devez payer la<br/>
+                                                somme égale à :<br/>
+                                                TOTAL IV + TOTAL V
+                                            </td>
+                                            <td style="border:0;"></td>
+                                            <td style="border:1px solid black;">
+                                                <strong>REGULARISATION ANNUELLE <br/>
+                                                = TOTAL IV +TOTAL V</strong>
+                                            </td>
+                                            <td style="border:1px solid black;text-align:center;">
+                                                <span t-esc="format_amount('%i',((data['disa']['TOTAL_3'] - data['cnps']['TOTAL_1']) + (abs(data['cnps']['TOTAL_1'] - data['cnps']['TOTAL_2']))))"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <t t-if="o.type_cotisation == 'mens'">
+                          <div class="row">
+                            <div class="col-xs-4 col-xs-offset-7" style="border: 1px solid black; margin-top:-57px;">
+                                NB : En cas de solde créditeur, l’utilisation du montant est <br/>
+                                soumise à l’accord préalable de la CNPS
+                            </div>
+                          </div>
+                          <br/>
+                          <div class="row">
+                            <table class="table" style="margin-top:-25px;">
+                                <tr style="height:10px;">
+                                    <td style="font-size:10px;border: 1px solid black; text-align: center;" colspan="9"><strong>CADRE RESERVE A LA C.N.P.S (NE RIEN INSCRIRE S.V.P)</strong></td>
+                                </tr>
+                                <tr style="font-size:9px;height:9px;">
+                                    <td style="border: 1px solid black"><strong>DATE DE JOURNEE</strong></td>
+                                    <td style="border: 1px solid black"><strong>N° PIECE</strong></td>
+                                    <td style="border: 1px solid black"><strong>PERIODE</strong></td>
+                                    <td style="border: 1px solid black"><strong>CCODE VERSEMENT</strong></td>
+                                    <td style="border: 1px solid black"><strong>BANQUE</strong></td>
+                                    <td style="border: 1px solid black"><strong>REFERENCE DU TITRE DE PAIEMENT</strong></td>
+                                    <td style="border: 1px solid black"><strong>EMISSION DU</strong></td>
+                                    <td style="border: 1px solid black"><strong>MONTANT</strong></td>
+                                    <td style="border: 1px solid black"><strong>VISA</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                    <td style="border: 1px solid black"></td>
+                                </tr>
+                            </table>
+                        </div>
+                         <div class="row" style="margin-top:-19.5px;">
+                            <span style="display:inline-block; width:200px;">(*) De 1961 à 1984 : 3%</span>
+                            <span style="display:inline-block; width:20px;"></span>
+                            <span style="display:inline-block; width:200px;">De 1985 à 1999 : 4%</span>
+                            <span style="display:inline-block; width:20px;"></span>
+                            <span style="display:inline-block; width:200px;">De 2000 à 2011 : 8%</span>
+                            <span style="display:inline-block; width:20px;"></span>
+                            <span style="display:inline-block; width:200px;">2012 : 12% Depuis 2013 : 14%</span>
+                            <span style="display:inline-block; width:50px;"></span>
+                            <span style="display:inline-block; width:400px;">Imprimerie © CNPS 2 0 1 5 - KZGS</span>
+                        </div>
+                    </t>
+
+                        <t t-if="o.type_cotisation == 'trim'">
+                            <div class="row">
+                                <div class="col-xs-4 col-xs-offset-7" style="border: 1px solid black; margin-top:-5px;">
+                                NB : En cas de solde créditeur, l’utilisation du montant est <br/>
+                                soumise à l’accord préalable de la CNPS
+                                </div>
+                            </div>
+                        <br/>
+                        <div class="row">
+                        <table class="table" style="margin-top:-5px;">
+                            <tr>
+                                <td style="border: 1px solid black; text-align: center;" colspan="9"><strong>CADRE RESERVE A LA C.N.P.S (NE RIEN INSCRIRE S.V.P)</strong></td>
+                            </tr>
+                            <tr style="font-size:11px;">
+                                <td style="border: 1px solid black"><strong>DATE DE JOURNEE</strong></td>
+                                <td style="border: 1px solid black"><strong>N° PIECE</strong></td>
+                                <td style="border: 1px solid black"><strong>PERIODE</strong></td>
+                                <td style="border: 1px solid black"><strong>CCODE VERSEMENT</strong></td>
+                                <td style="border: 1px solid black"><strong>BANQUE</strong></td>
+                                <td style="border: 1px solid black"><strong>REFERENCE DU TITRE DE PAIEMENT</strong></td>
+                                <td style="border: 1px solid black"><strong>EMISSION DU</strong></td>
+                                <td style="border: 1px solid black"><strong>MONTANT</strong></td>
+                                <td style="border: 1px solid black"><strong>VISA</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                                <td style="border: 1px solid black"></td>
+                            </tr>
+                        </table>
+                     </div>
+                        <div class="row" style="margin-top:-15px;">
+                        <span style="display:inline-block; width:200px;">(*) De 1961 à 1984 : 3%</span>
+                        <span style="display:inline-block; width:20px;"></span>
+                        <span style="display:inline-block; width:200px;">De 1985 à 1999 : 4%</span>
+                        <span style="display:inline-block; width:20px;"></span>
+                        <span style="display:inline-block; width:200px;">De 2000 à 2011 : 8%</span>
+                        <span style="display:inline-block; width:20px;"></span>
+                        <span style="display:inline-block; width:200px;">2012 : 12% Depuis 2013 : 14%</span>
+                        <span style="display:inline-block; width:50px;"></span>
+                        <span style="display:inline-block; width:400px;">Imprimerie © CNPS 2 0 1 5 - KZGS</span>
+                     </div>
+                        </t>
+
+                </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

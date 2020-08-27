@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="hr_payroll_its_report">
+    <t t-call="web.html_container">
+        <t t-set="data_report_margin_top" t-value="5"/>
+        <t t-set="data_report_margin_left" t-value="5"/>
+        <t t-set="data_report_margin_rigth" t-value="5"/>
+        <t t-set="data_report_header_spacing" t-value="5"/>
+        <t t-set="data_report_dpi" t-value="10"/>
+
+        <t t-foreach="docs" t-as="o">
+            <div class="page">
+                <style type="text/css">
+                    .border { border: 0.5px solid #000000;}
+                    .bank{ height: 30px;}
+                    td { padding-top: 3px; padding-bottom: 3px;}
+                    .tb1{ width: 100%;}
+                    .tb1d0{ width: 20%; border: 0.5px solid black; font: 12px bold 'Arial';}
+                    .tb1d1{ width: 60%; border: 0.5px solid black; font: 14px bold 'Arial'; border-top: none; border-bottom: none;}
+                    .tb1d2 { width: 20%; border: 0.5px solid black; ;}
+                    .h0 { margin-top: 10px;}
+                    .d0{ margin-top: 10px;}
+                    .tb0{ width: 100%; font: 11px 'Arial';}
+                    .tb0r0d0{ width: 20%; font: 10px 'Arial';}
+                    .tb0r0d1{ width: 3%;}
+                    .tb0r0d2{ width: 4%; border: 0.5px solid black; background-color: rgba(240, 255, 167, 1);
+                        border-top: none;font: bold 15px 'Arial'; text-align: right; padding: 0px 2px;}
+                    .tb0r0d4 { text-align: center; border: none; }
+                    .tb0r0d5{  border-bottom: 0.5px; border-style: dotted; width: 20%;}
+                    .title{ margin-top: 5px; margin-left: 5px; font: bold 16px 'Arial';}
+                    .t0{ font: bold 10px 'Arial'; width: 100%; text-align: center;}
+                    .t0r0d0{ border: 0.5px solid black; background-color: black; text-align: center; width: 20px; color: #ffffff;
+                    padding-top: 5px; padding-bottom: 5px;}
+                    .t0r0d1{ border: 0.5px solid black; text-align: left; width: 500px;}
+                    .t0r0d2{ text-align: left; width: 250px; }
+                    .t0r0d3{ border: 0.5px solid black; text-align: left; width: 15%;}
+                    .t0r1{ background-color: #7F8C8D;}
+                    .t0r2d1 { text-align: left; padding-left: 10px;}
+                    .t0r2d3{ background-color: #7F8C8D; }
+                    .t0r2d4{ background-color: #7F8C8D; }
+                    .t0r4d0{ border: 0.5px solid black; background-color: black; text-align: center; width: 20px; color: #ffffff;
+                    padding-top: 5px; padding-bottom: 5px; }
+                    .t0r4d1 .t0r4d2{ border: 0.0px solid #ffffff;}
+                    .t1r0d1{ text-align: left; }
+                    .t1r2d0{ border: 0.5px solid #000000; }
+                    .t1r2d1{ border: 0.5px solid #000000; background-color: #7F8C8D;}
+                    .t1r2d2{ border: 0.5px solid #000000; }
+                    .t1r2d4{ border: 0.5px solid #000000; }
+                    .head{ background-color: #7F8C8D;; border: 0.5px solid #000000;}
+                    .t2{ font: bold 10px 'Arial'; width: 100%; text-align: center;}
+                    .t2r0d { width: 20px; }
+                    .t2r0d0 { border: 0.5px solid #000000; width: 100px;}
+                    .t2r0d1 { border: 0.5px solid #000000; width: 100px;}
+                    .t2r0d2 { border: 0.5px solid #000000; width: 60px;}
+                    .t2r0d6{ width: 30px;}
+                    .t2r0d7{ width: 100px;}
+                    .t2r2d0{ border: 0.5px solid #000000; }
+                    .t2r2d2{ border: 0.5px solid #000000; }
+                    .ended{ font: 10px 'Arial'; margin-top: 10px;}
+                    .row { font: 12px 'Arial';}
+                    .back{ background-color: rgba(240, 255, 167, 1);}
+                    <!---->
+                </style>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="col-xs-3">NCC : <span t-field="user.company_id.num_contribuable"/></div>
+                        <div class="col-xs-6 text-center">
+                            REPUBLIQUE DE COTE D'IVOIRE<br/>
+                                Union-Discipline-Travail<br/>
+                            -------------------------<br/>
+                           MINISTERE AUPRES DU PREMIER MINISTRE,<br/>
+                                    CHARGE DU BUDGET<br/>
+                            -------------------------
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+                </div>
+                <div class="h1">
+                    <table class="tb1">
+                        <tr>
+                            <td class="tb1d0">CACHET DU SERVICE</td>
+                            <td class="tb1d1" rowspan="2">
+                                <div class="text-center row">
+                                    <strong>DIRECTION GENERALE DES IMPOTS</strong><br/>
+                                <img src="hr_payroll_ci_raport/static/img/dgi2.jpg"
+                                     style="max-height: 30px;
+                                     width: 100px;
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    padding:auto;"
+                                />
+                                    <strong>TAXE D'APPRENTISSAGE ET TAXE</strong><br/>
+                                <strong>ADDITIONNELLE A LA FORMATION CONTINUE</strong><br/>
+                                    (Articles 143 et suivants du CGI)<br/>
+                                    --------------------------------<br/>
+
+                                </div>
+                            </td>
+                            <td class="tb1d0">DATE DE RECEPTION</td>
+                        </tr>
+                        <tr>
+                            <td class="tb1d2" ></td>
+                            <td class="tb1d2" ></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="center" style="font: 12px bold 'Arial';"><strong>ETAT ANNEXE</strong></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="h0">
+                    <table class="tb0">
+                        <tr>
+                            <td rowspan="2" class="tb0r0d0"><sup>PERIODE D'IMPOSITION</sup></td>
+                            <td rowspan="2" class="tb0r0d1"></td>
+                            <td class="tb0r0d2"><span t-esc="data['month_1']"/></td>
+                            <td class="tb0r0d2"><span t-esc="data['month_2']"/></td>
+                            <td rowspan="2" class="tb0r0d1"></td>
+                            <td class="tb0r0d2">0</td>
+                            <td class="tb0r0d2"><span t-esc="data['quarter']"/></td>
+                            <td rowspan="2" class="tb0r0d1"></td>
+                            <td class="tb0r0d2"><span t-esc="data['year_1']"/></td>
+                            <td class="tb0r0d2"><span t-esc="data['year_2']"/></td>
+                            <td rowspan="2" class="tb0r0d1"></td>
+                            <td rowspan="2" class="tb0r0d3">SERVICE<br/>D'ASSIETTE DES IMPOTS</td>
+                            <td rowspan="2" class="tb0r0d1"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="tb0r0d4">MOIS</td>
+                            <td colspan="2" class="tb0r0d4">TRIM</td>
+                            <td colspan="2" class="tb0r0d4">ANNEE</td>
+                            <td class="tb0r0d5"><span t-field="user.company_id.impot_service"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="d0">
+                    <t t-set="total" t-value="0"/>
+                    <table class="t0">
+                        <tr class="t0r0">
+                            <td class="t0r0d0">01</td>
+                            <td class="t0r0d1" colspan="3">DETERMINATION DE L'ASSIETTE</td>
+                            <td class="t0r0d2" colspan="2" rowspan="4"></td>
+                        </tr>
+                        <tr class="t0r1">
+                            <td class="t0r1d0 border">N°</td>
+                            <td colspan='2' class="t0r1d1 border">Revenus bruts impossables</td>
+                            <td class="t0r1d2 border" >Montant brut</td>
+                        </tr>
+                        <tr class="t0r2">
+                            <td class="t0r2d0 border">1</td>
+                            <td colspan='2' class="t0r2d1 border">Rémunérations versées</td>
+                            <td class="t0r2d2 border back"><span t-esc="format_amount(data['brut'])"/></td>
+                        </tr>
+                        <tr class="t0r2">
+                            <td class="t0r2d0 border">2</td>
+                            <td colspan='2' class="t0r2d1 border">Avantages en nature (évaluation)</td>
+                            <td class="t0r2d2 border back" ></td>
+                        </tr>
+                        <tr class="t0r2">
+                            <td class="t0r2d0 border">3</td>
+                            <td colspan='2' class="t0r2d1 border ">Autres (à préciser)</td>
+                            <td class="t0r2d2 border back" ></td>
+                            <td class="t0r2d3 border" >Abatement</td>
+                            <td class="t0r2d4 border" >Révenu net imposable</td>
+                        </tr>
+                        <tr class="t0r2">
+                            <td colspan='3' class="t0r2d0 border">Montant total brut</td>
+                            <td class="t0r2d2 border" ><span t-esc="format_amount(data['brut_total'])"/></td>
+                            <td class="t0r2d5 border" ><span t-esc="format_amount(data['NORM']['taux'])"/> % </td>
+                            <td class="t0r2d6 border" ><span t-esc="format_amount(data['NORM']['montant'])"/></td>
+                        </tr>
+                        <tr class="t0r2" >
+                            <td class="t0r2d0 border">4</td>
+                            <td colspan='2' class="t0r2d1 border ">Pensions (b)</td>
+                            <td class="t0r2d2 border" ></td>
+                            <td class="t0r2d5 border" ><span t-esc="format_amount(data['PEN']['taux'])"/> % </td>
+                            <td class="t0r2d6 border" ><span t-esc="format_amount(data['PEN']['montant'])"/></td>
+                        </tr>
+                        <tr class="t0r2" >
+                            <td rowspan='2' class="t0r2d0 border">5</td>
+                            <td rowspan='2' class="t0r2d0 border">Rentes viagières</td>
+                            <td class="t0r2d1 border "><span t-esc="data['RENT1']['name']"/></td>
+                            <td class="t0r2d2 border" ></td>
+                            <td class="t0r2d5 border" ><span t-esc="format_amount(data['RENT1']['taux'])"/> % </td>
+                            <td class="t0r2d6 border" ><span t-esc="format_amount(data['RENT1']['montant'])"/></td>
+                        </tr>
+                        <tr class="t0r2" >
+                            <td class="t0r2d1 border "><span t-esc="data['RENT2']['name']"/></td>
+                            <td class="t0r2d2 border" ></td>
+                            <td class="t0r2d5 border" ><span t-esc="format_amount(data['RENT2']['taux'])"/> % </td>
+                            <td class="t0r2d6 border" ><span t-esc="format_amount(data['RENT2']['montant'])"/></td>
+                        </tr>
+                        <tr class="t0r3" >
+                            <t t-set="total" t-value="data['NORM']['montant'] + data['PEN']['montant'] + data['RENT1']['montant'] + data['RENT2']['montant']"/>
+                            <td colspan='5' class="t0r3d0">TOTAL</td>
+                            <td class="t0r2d6 border" ><span t-esc="format_amount(total)"/></td>
+                        </tr>
+                        <tr class="t1r0">
+                            <td class="t0r0d0" >02</td>
+                            <td class="t1r0d1" colspan="5">DETERMINATION DE L'IMPOT</td>
+                        </tr>
+                        <tr class="t1r1">
+                            <td class="t1r0d0 ">2-1</td>
+                            <td class="t1r0d1" colspan="5">IMPOTS RETENUS AUX SALARIES</td>
+                        </tr>
+                        <tr class="t1r2">
+                            <td class="t1r2d1">N°</td>
+                            <td class="t1r2d1">Revenu brut imposable</td>
+                            <td  class="t1r2d1">Base imposable </td>
+                            <td  class="t1r2d1">Taux ou Tarif</td>
+                            <td  class="t1r2d1">Montant</td>
+                            <td  class="t1r2d3" rowspan="5"></td>
+                        </tr>
+                        <tr class="t1r2">
+                            <t t-set="its" t-value="(data['total']) * 1.5/100"/>
+                            <td class="t1r2d0 ">6</td>
+                            <td class="t1r2d2">Impôt sur salaire (IS)</td>
+                            <td class="t1r2d2" rowspan="2"><span t-esc="format_amount(total)"/></td>
+                            <td class="t1r2d2"> 1,5 %</td>
+                            <td class="t1r2d2 back"><span t-esc="format_amount(its)"/></td>
+                        </tr>
+                        <tr class="t1r2">
+                            <td class="t1r2d0 ">7</td>
+                            <td class="t1r2d2">Contribution national (CN)</td>
+                            <td class="t1r2d2 head" rowspan="2"></td>
+                            <td class="t1r2d2 back"><span t-esc="format_amount(data['cn'])"/></td>
+                        </tr>
+                        <tr class="t1r2">
+                            <td class="t1r2d0 ">8</td>
+                            <td class="t1r2d2">Impôt Général sur le revenu (IGR)</td>
+                            <td class="t1r2d2 back"><span t-esc="format_amount(data['revenu'])"/></td>
+                            <td class="t1r2d2 back"><span t-esc="format_amount(data['igr'])"/></td>
+                        </tr>
+                        <tr class="t1r2">
+                            <t t-set="total_emp" t-value="data['cn'] + data['igr'] + its"/>
+                            <td class="t1r2d0 ">9</td>
+                            <td colspan="3">TOTAL DES RETENUES AUX SALARIES (6+7+8)</td>
+                            <td class="t1r2d4"><span t-esc="format_amount(total_emp)"/></td>
+                            <td></td>
+                        </tr>
+                        <tr class="t1r3">
+                            <td colspan="4" style="text-align: left;">02-2 CONTRIBUTION A LA CHARGE DE L'EMPLOYEUR</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="d1">
+                    <table class="t2">
+                        <tr>
+                            <td class="head t2r0d">N°</td>
+                            <td class="head t2r0d0">Nature des impôts</td>
+                            <td class="head t2r0d1">Catégorie de salariés</td>
+                            <td class="head t2r0d2">Effectifs</td>
+                            <td class="head t2r0d0">Revenu net imposable</td>
+                            <td class="head t2r0d2">Taux</td>
+                            <td class="head t2r0d0">Montant</td>
+                            <td rowspan="6" class="t2r0d6"></td>
+                            <td rowspan="4" class="t2r0d7"></td>
+                        </tr>
+                        <tr>
+                            <td class="t2r2d0">10</td>
+                            <td class="t2r0d0" rowspan="2">CE</td>
+                            <td class="t2r0d1">Personnel local</td>
+                            <td class="back t2r0d2"></td>
+                            <td class="back t2r0d0"></td>
+                            <td class="head t2r0d2"></td>
+                            <td class="head t2r0d0"></td>
+                        </tr>
+                        <tr>
+                            <td class="t2r2d0">11</td>
+                            <td class="t2r0d1">Personnel expatrié</td>
+                            <td class="back t2r0d2"></td>
+                            <td class="back t2r0d0"></td>
+                            <td class="t2r0d2">11,5 %</td>
+                            <td class="t2r0d0"></td>
+                        </tr>
+                        <tr>
+                            <td class="t2r2d0">12</td>
+                            <td class="t2r0d0" rowspan="2">CN (c)</td>
+                            <td class="t2r0d1">Personnel local</td>
+                            <td class="back t2r0d2"></td>
+                            <td class="back t2r0d0"></td>
+                            <td class="t2r0d2" rowspan="2">1,5 %</td>
+                            <td class="t2r0d0"></td>
+                        </tr>
+                        <tr>
+                            <td class="t2r2d0">13</td>
+                            <td class="t2r0d1">Personnel expatrié</td>
+                            <td class="back t2r0d2"></td>
+                            <td class="back t2r0d0"></td>
+                            <td class="t2r0d0"></td>
+                            <td class="t2r0d3">15.REGULARISATION</td>
+                        </tr>
+                        <tr>
+                            <td class="t2r2d0">14</td>
+                            <td class="t2r0d1" colspan="5">TOTAL</td>
+                            <td class="t2r0d0"></td>
+                            <td class="t2r2d2 back"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="9" class="bank"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="7"> Montant à payer (9 +14 +/- 15)</td>
+                            <td></td>
+                            <td class="t2r2d2"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="ended">
+                    - Les salariés des entreprises agricoles, agro-industrielles et assimilées prévus par l’article 147 du Code général des Impôts sont exonérés des impôts sur les traitements et salaires.<br/>
+- La déclaration de la taxe d’apprentissage et de la taxe additionnelle à la formation continue doit être jointe à la présente déclaration.<br/>
+N.B. :<br/>
+(a) Un abattement forfaitaire mensuel de 60 000 francs est fait sur le montant net des revenus imposables des salariés des entreprises agricoles autres que ceux visés à l’article 148 du Code général des
+Impôts.<br/>
+(b) Ne sont imposables que les pensions de retraite dont le montant est supérieur à 300 000 francs par mois.<br/>
+(c) Ce taux est porté à 2 % pour les entreprises agricoles, agro-industrielles et assimilées prévus par l’article 147 du Code général des Impôts.<br/>
+                </div>
+            </div>
+        </t>
+    </t>
+</template>
+</data>
+</odoo>

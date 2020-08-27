@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="cat_retenue" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">RETENUES</field>
+			<field name="name">Total Retenues</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_indm" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">INDM</field>
+			<field name="name">Indemnite</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_indmni" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">INDMNI</field>
+			<field name="name">Indemnite Non Imposable</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_salc" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">SALC</field>
+			<field name="name">Total Charges Salariales</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_base" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">BASE</field>
+			<field name="name">Salaire de base</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_brut" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">BRUT</field>
+			<field name="name">Salaire Brut</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_sursa" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">SURSALAIRE</field>
+			<field name="name">Sursalaire</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_salc" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">SALC</field>
+			<field name="name">Total Charges Salariales</field>
+			<field name="note"></field>
+			<field name="parent_id" ref="cat_retenue"></field>
+		</record>
+		<record id="cat_total" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">TOTAL</field>
+			<field name="name">Cout total pour l'entreprise</field>
+			<field name="note"></field>
+		</record>
+		<record id="cat_o_total" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">O_TOTALS</field>
+			<field name="name">Autres Totaux</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_c_imp" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">C_IMP</field>
+			<field name="name">Net Imposable</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_ret_emp" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">RET_EMP</field>
+			<field name="name">Retenues employés</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_imp_emp" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">IMP_EMP</field>
+			<field name="name">Impôts employeurs</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_tret" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">TRETR</field>
+			<field name="name">Total Cotisations Rétraite</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_arete" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">ARETE</field>
+			<field name="name">Autres retenues</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_cpatr" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">CPATR</field>
+			<field name="name">Cotisations Patronales</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_jpay" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">JPAY</field>
+			<field name="name">Jours payés</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_unpay" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">UNPAY</field>
+			<field name="name">Jours impayés</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_jrs" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">JRS</field>
+			<field name="name">Jours</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_prim" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">PRIM</field>
+			<field name="name">Primes</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_hsupp" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">HSUPP</field>
+			<field name="name">Heures supplémentaires</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_autres" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">AUTR</field>
+			<field name="name">Autres</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_rann" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">RANN</field>
+			<field name="name">Retenues annexes</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_comp" model="hr.salary.rule.category">
+			<field name="name">hr_salary_rule_category</field>
+			<field name="code">hr.salary.rule.category</field>
+			<field name="code">COMP</field>
+			<field name="name">Cotisations Patronales</field>
+			<field name="note"></field>
+			<field name="parent_id"></field>
+		</record>
+		<record id="cat_basic" model="hr.salary.rule.category">
+            <field name="name">Basic</field>
+            <field name="code">BASIC</field>
+        </record>
+		<record id="cat_net" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">NET</field>
+        </record>
+	</data>
+</openerp>

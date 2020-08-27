@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <record id="hr_payroll_fdfp_from_view" model="ir.ui.view">
+        <field name="name">hr.payroll.fdfp.form.view</field>
+        <field name="model">hr.payroll.fdfp</field>
+        <field name="arch" type="xml">
+            <form string="FDFP">
+                <!--<group>-->
+                    <!--<field name="name" />-->
+                <!--</group>-->
+                <group col="4">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group col="4">
+                    <!--<field name="service_assiette"/>-->
+                    <field name="company_id"/>
+                </group>
+                <footer>
+                    <button string="Imprimer" name="check_report" type="object" class="btn-primary"/>
+                    <!--<button string="Exporter en Excel" name="export_xls" type="object" class="btn-primary"-->
+                        <!--context="{'xls_export':1}" icon="fa-download"/>-->
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_payroll_fdfp" model="ir.actions.act_window">
+        <field name="name">Rapports FDFP</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.payroll.fdfp</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="hr_payroll_fdfp_menu" name="Rapports FDFP" sequence="50" parent="menu_hr_payroll_menu"
+            action="action_hr_payroll_fdfp"/>
+</data>
+</odoo>

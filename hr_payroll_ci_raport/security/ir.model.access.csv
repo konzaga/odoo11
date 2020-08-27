@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_payroll,hr.payroll,model_hr_payroll_payroll,base.group_hr_manager,1,1,1,1
+access_hr_dasc,hr.dasc,model_hr_dasc,base.group_hr_manager,1,1,1,1
+access_hr_payroll_fdfp,hr.payroll.fdfp,model_hr_payroll_fdfp,base.group_hr_manager,1,1,1,1
+access_hr_payroll_disa,hr.payroll.disa,model_hr_payroll_disa,base.group_hr_manager,1,1,1,1
+access_hr_disa_line,hr.disa.line,model_hr_disa_line,base.group_hr_manager,1,1,1,1
+access_hr_cnps_monthly,hr.cnps.monthly,model_hr_cnps_monthly,base.group_hr_manager,1,1,1,1
+access_hr_its,hr.its,model_hr_its,base.group_hr_manager,1,1,1,1
+access_hr_cnps_trimestriel,hr.cnps.trimestriel,model_hr_cnps_trimestriel,base.group_hr_manager,1,1,1,1
+access_hr_payroll_analyse,hr.payroll.analyse,model_hr_payroll_analyse,base.group_hr_manager,1,1,1,1

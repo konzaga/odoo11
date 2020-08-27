@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emprunt_manager,hr_emprunt_quotite manager,model_hr_emprunt_quotite,hr_emprunt.emprunt_manager,1,1,1,1
+access_emprunt_demande_manager,hr.emprunt.demande manager,model_hr_emprunt_demande,hr_emprunt.emprunt_manager,1,1,1,1
+access_emprunt_demande_user,hr.emprunt.demande user,model_hr_emprunt_demande,hr_emprunt.emprunt_user,1,1,1,1
+access_emprunt_loaning_manager,hr.emprunt.loaning manager,model_hr_emprunt_loaning,hr_emprunt.emprunt_manager,1,1,1,1
+access_emprunt_loaning_user,hr.emprunt.loaning user,model_hr_emprunt_loaning,hr_emprunt.emprunt_user,1,1,0,0
+access_emprunt_loaning_line_manager,hr.emprunt.loaning.line maanger,model_hr_emprunt_loaning_line,hr_emprunt.emprunt_manager,1,1,1,1
+access_emprunt_loaning_line_user,hr.emprunt.loaning.line user,model_hr_emprunt_loaning_line,hr_emprunt.emprunt_user,1,1,0,0

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="cnps_trimestriel_sequence" model="ir.sequence">
+        <field name="name">Sequence cnps trimestriel</field>
+        <field name="code">hr.cnps.trimestriel</field>
+        <field name="prefix">EN-GRC-</field>
+        <field name="padding">2</field>
+        <field eval="1" name="number_increment"/>
+      </record>
+
+    </data>
+</odoo>

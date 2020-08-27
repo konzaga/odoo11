@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+
+        <record id="hr_payroll_disa_from_view" model="ir.ui.view">
+            <field name="name">hr.payroll.disa.form.view</field>
+            <field name="model">hr.payroll.disa</field>
+            <field name="arch" type="xml">
+                <form string="DISA">
+                    <group col="4">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="company_id"/>
+                        <field name="total_general_brut" invisible="1"/>
+                        <field name="total_general_cotisation" invisible="1"/>
+                        <field name="total_general_retraite" invisible="1"/>
+                        <field name="total_general_employee" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button string="Imprimer" name="check_report" type="object" class="btn-primary"/>
+                        <!--<button string="Exporter en Excel" name="export_xls" type="object" class="btn-primary"-->
+                            <!--context="{'xls_export':1}" icon="fa-download"/>-->
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_payroll_disa" model="ir.actions.act_window">
+            <field name="name">Rapports DISA</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.disa</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="hr_payroll_disa_menu" name="DISA" sequence="50" parent="menu_hr_payroll_menu"
+                action="action_hr_payroll_disa"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_payroll_analyse_tree_view">
+            <field name="name">hr.payroll.analyse.tree</field>
+            <field name="model">hr.payroll.analyse</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Livre de paie">
+                    <field name="employee_id"/>
+                    <field name="date" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_payroll_analyse_pivot_view">
+            <field name="name">hr.payroll.analyse.pivot</field>
+            <field name="model">hr.payroll.analyse</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse de paie" display_quantity="true">
+                    <field name="employee_id" type="row"/>
+                    <field name="date" type="col"/>
+                    <field name="base" type="measure"/>
+                    <field name="sursalaire" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_payroll_analyse_pivot_view">
+            <field name="name">Analyse de la paie</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.analyse</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">pivot</field>
+        </record>
+        <menuitem id="hr_payroll_analyse_menu_id" name="Analyse de la paie" parent="hr_payroll_ci_raport.menu_hr_payroll_menu" action="action_payroll_analyse_pivot_view"/>
+
+    </data>
+</openerp>

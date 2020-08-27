@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="hr_structure_salary_rule_rel0" model="hr_structure_salary_rule_rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule0"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel1" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule1"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel2" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule2"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel3" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule3"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel4" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule4"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel5" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule5"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel6" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule6"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel7" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule7"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel8" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule8"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel9" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule9"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel10" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule10"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel11" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule11"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel12" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule12"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel13" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule13"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel14" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule14"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel15" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule15"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel16" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule16"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel17" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule17"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel18" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule19"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel19" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule20"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel20" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule21"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel21" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule22"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel22" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule23"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel23" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule24"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel24" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule25"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel25" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule26"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel26" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule27"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel27" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule28"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel28" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule29"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel29" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule30"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel30" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule31"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel31" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule32"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel32" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule33"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel33" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule34"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel34" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule36"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel35" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule37"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel36" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule38"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel37" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule39"></field>
+		</record>
+		<record id="hr_structure_salary_rule_rel38" model="hr.structure.salary.rule.rel">
+			<field name="name">hr_structure_salary_rule_rel</field>
+			<field name="code">hr.structure.salary.rule.rel</field>
+			<field name="struct_id" ref="hr_payroll_structure0"></field>
+			<field name="rule_id" ref="hr_salary_rule40"></field>
+		</record>
+	</data>
+</openerp>

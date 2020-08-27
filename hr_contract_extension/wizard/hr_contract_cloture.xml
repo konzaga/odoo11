@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		   <record model="ir.ui.view" id="hr_contract_colture_form_view">
+                <field name="name">hr.contract.cloture.form</field>
+                <field name="model">hr.contract</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <sheet>
+                        	<group >
+                        		<group>
+                        			<field name="type_ended" />
+                        		</group>
+                        	</group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>    
+            
+            <record model="ir.actions.act_window" id="action_hr_contract_tree_view">
+                <field name="name">hr.contract</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.contract</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="hr_contract_colture_form_view"/>
+                <field name="target">new</field>
+            </record>
+
+    </data>
+</openerp>

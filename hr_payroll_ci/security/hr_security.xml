@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data >
+
+
+
+    <record id="property_rule_new_employee_payslip_all" model="ir.rule">
+        <field name="name">Hr manager </field>
+        <field name="model_id" ref="model_hr_payslip"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
+    </record>
+
+</data>
+</openerp>

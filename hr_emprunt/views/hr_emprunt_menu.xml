@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem id="emprunt_menu_id" name="Emprunts" parent="hr.menu_hr_root"/>
+    </data>
+</openerp>

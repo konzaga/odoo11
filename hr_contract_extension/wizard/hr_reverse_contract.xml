@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_reverse_contract_form_view">
+            <field name="name">hr.reverse.contract.form</field>
+            <field name="model">hr.reverse.contract</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Calcul inverse de salaire">
+                    <sheet>
+                        <h2><field name="name"/></h2>
+                        <group >
+                            <group>
+                                <field name="hr_convention_id"/>
+                                <field name="hr_secteur_id"/>
+                                <field name="categorie_salariale_id"/>
+                            </group>
+                            <group>
+                                <field name="wage"/>
+                                <field name="montant" />
+                                <field name="sursalaire"/>
+                                <field name="prime_anciennete"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Primes">
+                                <field name="prime_ids">
+                                    <tree string="Les primes" editable="top">
+                                        <field name="prime_id"/>
+                                        <field name="montant_prime" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="compute" string="Calcul" type="object" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_reverse_contract_view">
+            <field name="name">Calcul Inverse</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.reverse.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_reverse_contract_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</openerp>

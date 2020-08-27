@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_payroll">
+			<t t-call="web.external_layout">
+				<t t-set="data_report_margin_top" t-value="6"/>
+				<t t-set="data_repoart_margin_left" t-value="2"/>
+				<t t-set="data_repoart_margin_rigth" t-value="2"/>
+				<t t-set="data_report_header_spacing" t-value="5"/>
+				<t t-set="data_report_dpi" t-value="110"/>
+
+				 <t t-foreach="docs" t-as="o">
+					 <t t-set="o" t-value="o.with_context({'lang':user.lang})"/>
+					 <div class="page">
+						 <div>
+							 Livre de paie : <span t-esc="data['name']" /> du <span t-esc="data['date_from']"/>
+							  - <span t-esc="data['date_to']" />
+						 </div>
+						 <div>
+							 <table class="table table-condensed">
+								<thead>
+									<tr style="font-size: 8px;">
+										<th >NOM ET PRENOMS</th>
+										<t t-foreach="codes" t-as="code">
+											<th><span t-esc="code"/></th>
+										</t>
+									</tr>
+								</thead>
+								<tbody>
+									<tr t-foreach="lines" t-as="line" style="font-size: 8px;">
+										<td><span t-esc="line['NAME']" /> </td>
+										<t t-foreach="codes" t-as="cd">
+											<td><span t-esc="line[cd]"/></td>
+										</t>
+									</tr>
+									<tr style="font-size: 8px;">
+										<td>Total : </td>
+										<t t-foreach="codes" t-as="cd">
+											<td><span t-esc="lines_total[cd]"/></td>
+										</t>
+									</tr>
+								</tbody>
+							 </table>
+						 </div>
+					 </div>
+
+				</t>
+
+			</t>
+		</template>
+	</data>
+</odoo>

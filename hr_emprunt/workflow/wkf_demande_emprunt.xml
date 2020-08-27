@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+      <!-- Workflow emprunt -->
+    <record id="workflow_dmdempruntbasic" model="workflow">
+    	<field name="name">demande.emprunt.basic</field>
+    	<field name="osv">hr.emprunt.demande</field>
+    </record>
+    
+    <!-- Workflow activity -->
+    
+    <record id="act_dmd_emprunt_draft" model="workflow.activity">
+    	<field name="name">draft</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_draft()</field>
+    	<field name="flow_start">True</field>
+    </record>
+    
+    <record id="act_dmd_emprunt_confirmed" model="workflow.activity">
+    	<field name="name">confirmed</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_confirmed()</field>
+    </record>
+    
+    <record id="act_dmd_emprunt_validated" model="workflow.activity">
+    	<field name="name">validated</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_validated()</field>
+    </record>
+    
+    <record id="act_dmd_emprunt_submitted" model="workflow.activity">
+    	<field name="name">submitted</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_submitted()</field>
+    </record>
+    
+    <record id="act_dmd_emprunt_cancel" model="workflow.activity">
+    	<field name="name">cancel</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_cancel()</field>
+    </record>
+    
+    <record id="act_dmd_emprunt_done" model="workflow.activity">
+    	<field name="name">done</field>
+    	<field name="wkf_id" ref="workflow_dmdempruntbasic" />
+    	<field name="kind">function</field>
+    	<field name="action">action_done()</field>
+    </record>
+    
+       <!-- Workflow transition -->
+    
+    	<record id="trans_dmd_emprunt_0" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_draft"/>
+            <field name="act_to" ref="act_dmd_emprunt_submitted"/>
+            <field name="signal">signal_submitted</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_dmd_emprunt_1" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_submitted"/>
+            <field name="act_to" ref="act_dmd_emprunt_draft"/>
+            <field name="signal">signal_draft</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_dmd_emprunt_2" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_submitted"/>
+            <field name="act_to" ref="act_dmd_emprunt_confirmed"/>
+            <field name="signal">signal_confirmed</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_dmd_emprunt_3" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_confirmed"/>
+            <field name="act_to" ref="act_dmd_emprunt_validated"/>
+            <field name="signal">signal_validated</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_dmd_emprunt_4" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_validated"/>
+            <field name="act_to" ref="act_dmd_emprunt_done"/>
+            <field name="signal">signal_done</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_dmd_emprunt_5" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_validated"/>
+            <field name="act_to" ref="act_dmd_emprunt_cancel"/>
+            <field name="signal">signal_cancel</field>
+            <field name="condition">True</field>
+        </record>
+        
+        <record id="trans_emprunt_6" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_done"/>
+            <field name="act_to" ref="act_dmd_emprunt_draft"/>
+            <field name="signal">signal_draft</field>
+            <field name="condition">True</field>
+        </record>
+        
+         <record id="trans_emprunt_7" model="workflow.transition">
+            <field name="act_from" ref="act_dmd_emprunt_confirmed"/>
+            <field name="act_to" ref="act_dmd_emprunt_draft"/>
+            <field name="signal">signal_draft</field>
+            <field name="condition">True</field>
+        </record>
+    
+    </data>
+</openerp>

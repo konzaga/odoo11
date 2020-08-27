@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <record id="hr_cnps_trimestriel_from_view" model="ir.ui.view">
+        <field name="name">hr.cnps.trimestriel.form.view</field>
+        <field name="model">hr.cnps.trimestriel</field>
+        <field name="arch" type="xml">
+            <form string="CNPS TRIMESTRIEL">
+                <group col="4">
+                    <field name="trimestre"/>
+                    <field name="company_id"/>
+                </group>
+                <footer>
+                    <button string="Imprimer" name="compute" type="object" class="btn-primary"/>
+                    <!--<button string="Exporter en Excel" name="export_xls" type="object" class="btn-primary"-->
+                        <!--context="{'xls_export':1}" icon="fa-download"/>-->
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_cnps_trimestriel" model="ir.actions.act_window">
+        <field name="name">CNPS TRIMESTRIEL</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.cnps.trimestriel</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="hr_cnps_trimestriel_menu" name="CNPS Trimestriel" sequence="50" parent="menu_hr_payroll_menu"
+            action="action_hr_cnps_trimestriel"/>
+</data>
+</odoo>

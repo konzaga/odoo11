@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<report 
+            string="Livre de paie" 
+            id="report_hr_payroll" 
+            model="hr.payroll.payroll"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.report_payroll" 
+            file="hr_payroll_ci_raport.report_payroll" 
+        />
+
+        <!--<report
+            id="payroll_report_xlsx"
+            model="hr.payroll.payroll"
+            string="Livre de paie"
+            report_type="xlsx"
+            name="hr_payroll_ci_raport.hr_payroll.xlsx"
+            file="hr_payroll_ci_raport.hr_payroll.xlsx"
+            attachment_use="False"
+        /> -->
+		
+		<report 
+            string="CNPS Mensuel" 
+            id="hr_cnps_report" 
+            model="hr.cnps.monthly"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.cnps_mensuel_report" 
+            file="hr_payroll_ci_raport.cnps_mensuel_report" 
+        />
+        <report
+            string="CNPS Trimestriel"
+            id="hr_cnps_trimestriel_report"
+            model="hr.cnps.trimestriel"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.cnps_trimestriel_report"
+            file="hr_payroll_ci_raport.cnps_trimestriel_report"
+        />
+
+        <report
+            string="DISA"
+            id="hr_disa_report"
+            model="hr.payroll.disa"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.report_hr_disa"
+            file="hr_payroll_ci_raport.report_hr_disa"
+        />
+
+        <report
+            string="FDFP"
+            id="hr_fdfp_report"
+            model="hr.payroll.fdfp"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.report_fdfp"
+            file="hr_payroll_ci_raport.report_fdfp"
+        />
+
+        <report
+            string="ITS"
+            id="hr_its_report"
+            model="hr.its"
+            report_type="qweb-pdf"
+            name="hr_payroll_ci_raport.report_hr_its"
+            file="hr_payroll_ci_raport.report_hr_its"
+        />
+
+        <report
+        id="dasc_id"
+        string="DASC"
+        model="hr.dasc"
+        report_type="qweb-pdf"
+        file="hr_payroll_ci_raport.report_dasc"
+        name="hr_payroll_ci_raport.report_dasc"
+        />
+
+
+    
+    </data>
+
+    <report
+        id="payroll_report_xlsx"
+        model="hr.payroll.payroll"
+        string="LIVRE DE PAIE"
+        report_type="xlsx"
+        name="hr_payroll_ci_raport.report_payroll_xlsx"
+        file="hr_payroll_ci_raport.report_payroll_xlsx"
+        attachment_use="False"
+    />
+</openerp>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>	
+    
+    	<menuitem id="model_contract_menu"
+            name="Gestion des contrats"
+            parent="hr.menu_hr_root"
+            groups="hr.group_hr_manager"/>
+
+        <menuitem
+            id="hr_contract.hr_menu_contract"
+            name="Contracts"
+            action="hr_contract.action_hr_contract"
+            parent="model_contract_menu"
+            sequence="4"
+            groups="hr.group_hr_manager"/>
+    
+    	<record model="ir.ui.view" id="hr_model_contract_tree_view">
+            <field name="name">hr.model.contract.tree</field>
+            <field name="model">hr.model.contract</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tree_string">
+                    <field name="name"/>
+                    <field name="titre_poste" />
+                    <field name="type_contract" />
+                    <field name="salaire_base" />
+                    <field name="categorie_salariale" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_model_contract_form_view">
+            <field name="name">hr.model.contract.form</field>
+            <field name="model">hr.model.contract</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Model de contract" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" select="1"/>
+                                <field name="titre_poste" />
+                                <field name="structure_salariale" />
+                                <field name="type_contract" />
+                            </group>
+                            <group>
+                                <field name="convention_id" />
+                                <field name="secteur_activite_id" />
+                                <field name="categorie_salariale" />
+                                <field name="salaire_base" />
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Primes">
+                                <field name="prime_ids" editable="top">
+                                    <tree string="Primes">
+                                        <field name="prime_id" />
+                                        <field name="montant_prime" />
+                                    </tree>
+                                    <form>
+                                        <field name="prime_id" />
+                                        <field name="montant_prime" />
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_model_contract_tree_view">
+            <field name="name">Modele de Contrat</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.model.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_hr_model_contract_tree_view" id="hr_model_contract" parent="model_contract_menu" name="Modèle de contrats" />
+
+
+        <record model="ir.ui.view" id="hr_contract_generate_tree_view">
+            <field name="name">hr.contract.generate.tree</field>
+            <field name="model">hr.contract.generate</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Génération de contrats">
+                    <field name="name"/>
+                    <field name="model_contract_id" />
+                    <field name="date_generate" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_contract_generate_form_view">
+            <field name="name">hr.contract.generate.form</field>
+            <field name="model">hr.contract.generate</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Génération de contracts" version="7.0">
+                    <header>
+                        <button name="generate_contract" string="Générer  contrats" type="object" icon="gtk-execute" class="oe_highlight" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <h1>
+                                <field name="name" select="1" placeholder="Designation"/>
+                            </h1>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="model_contract_id" />
+                            </group>
+                            <group>
+                                <field name="date_generate" />
+                            </group>
+                        </group>
+                        <group colspan="4" >
+                            <separator string="Employees" colspan="4"/>
+                            <newline/>
+                            <field name="employee_ids" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_contract_generate_tree_view">
+            <field name="name">Generation de contrats</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.contract.generate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_contract_generate_tree_view"/>
+        </record>
+
+        <menuitem id="contrat_generate_menu" name="Générer lot de contrats" parent="model_contract_menu" action="action_hr_contract_generate_tree_view"/>
+    </data>
+</openerp>

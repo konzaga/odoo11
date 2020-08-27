@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2012 Veone - support.veone.net
+# Author: Veone
+#
+# Fichier du module hr_emprunt
+# ##############################################################################  -->
+<openerp>
+	<data>
+
+		<menuitem id="id_emprunt_menu" name="Emprunts" />
+
+        <!--==========-->
+        <!--Emprunt-->
+        <!--==========-->
+		<record model="ir.ui.view" id="emprunt_tree_view">
+			<field name="name">hr.emprunt.tree</field>
+			<field name="model">hr.emprunt.loaning</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Liste des emprunts" colors="blue:remaining_emprunt&lt;50;red:remaining_emprunt>50">
+					<field name="name"/>
+					<field name="employee_id"/>
+					<field name="montant_emprunt"/>
+					<field name="taux"/>
+					<field name="date_emprunt"/>
+					<field name="date_echeance"/>
+					<field name="remaining_emprunt" widget="progressbar"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="emprunt_form_view">
+			<field name="name">hr.emprunt.form</field>
+			<field name="model">hr.emprunt.loaning</field>
+			<field name="arch" type="xml">
+				<form string="Emprunts" version="7.0">
+					<header>
+						<button name="action_demandeur" states="draft" string="Soumettre au demandeur" type="object"
+								class="oe_highlight" groups="hr_emprunt.emprunt_manager"/>
+						<button name="action_confirmed" states="demandeur" string="Valider" type="object"
+								class="oe_highlight" groups="hr_emprunt.emprunt_user"/>
+						<button name="echeance_print" type="object" string="Imprimer" groups="hr_emprunt.emprunt_user"/>
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+						<h1>
+							<field name="name" placeholder="Libellé de l'emprunt"/>
+						</h1>
+						<group >
+							<group>
+								<field name="employee_id" />
+								<field name="montant_emprunt" />
+								<field name="taux" />
+								<field name='total_emprunt' />
+								<field name="remaining_emprunt" widget="progressbar"/>
+							</group>
+							<group>
+								<field name="option"/>
+								<field name="date_emprunt"/>
+								<field name="date_debut_remboursement" />
+								<field name="date_echeance" attrs="{'invisible' :[('option','=','lineaire')] }" />
+								<field name="intervalle_echeance"/>
+								<field name="nb_echeance" attrs="{'invisible' :[('option','=','variee')] }"/>
+							</group>
+						</group>
+						<notebook>
+							<page string = "Echéances">
+								<field name="echeance_ids"  colspan="4" nolabel="1">
+									<tree string="Echéances">
+										<field name="name"/>
+										<field name="montant" sum="Total des échéances"/>
+										<field name="montant_paye" sum="Montant payé" />
+										<field name="montant_restant" sum="Montants restants"/>
+										<field name="date_prevu"/>
+										<field name="date_remboursement_echeance"/>
+										<field name="statut_echeance"/>
+									</tree>
+									<form string="Echeances">
+										<header>
+											<button name="action_suspendre" string="Suspendre" type="object" />
+											<field name="statut_echeance" widget="statusbar"/>
+										</header>
+										<sheet>
+											<group col="4">
+												<field name="name"/>
+												<field name="montant" sum="Total des échéances"/>
+												<field name="montant_paye" sum="Montant payé" />
+												<field name="montant_restant" sum="Montants restants"/>
+												<field name="date_prevu"/>
+												<field name="date_remboursement_echeance"/>
+											</group>
+										</sheet>
+									</form>
+								</field>
+							</page>
+							<page string = "Notes">
+								<field name="notes" nolabel="1"/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_emprunt_loaning_view">
+			<field name="name">Echéanciers de paiement</field>
+			<field name="res_model">hr.emprunt.loaning</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="hr_emprunt_loaning_menu" name="Echéanciers de paiement" parent="id_emprunt_menu" action="action_emprunt_loaning_view"
+				  sequence="100"/>
+
+             <!--<record model="ir.ui.view" id="emprunt_search_view">-->
+                <!--<field name="name">hr.emprunt.search</field>-->
+                <!--<field name="model">hr.emprunt</field>-->
+                <!--<field name="type">search</field>-->
+                <!--<field name="arch" type="xml">-->
+                    <!--<search string="Recherche des emprunts">-->
+                    	<!--<group col='15' colspan='4'>-->
+                        <!--<field name="employee_id" string="Employé"></field>-->
+                       <!--</group>-->
+                       <!--<newline />-->
+                       <!--<group expand="0" string="Recherche par..." colspan="4" col="20">-->
+                   			<!--<filter string="Employé" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/> -->
+                   		<!--</group>-->
+                    <!--</search>-->
+                <!--</field>-->
+            <!--</record> -->
+         
+         
+         
+          <!--  
+            <record model="ir.ui.view" id="view_payslip_form1">
+		    <field name="name">employee.emprunt.form1.inherit</field>
+		    <field name="model">hr.employee</field>
+		    <field name="type">form</field>
+		    <field name="inherit_id" ref="hr.view_employee_form"/>
+		    <field name="arch" type="xml">
+		    	<xpath expr="//form/sheet/notebook/page[@string='HR Settings']" position="after">
+		            <page string="Emprunt">
+		                <group>
+		                	<field name="echeance_count" domain="[('uid','=','active_id')]"/>
+		                </group>
+		            </page>
+		        </xpath>
+		    </field>
+			</record>  --> 
+  	
+  	 <!--
+        ==========
+        Echéance
+        ==========
+        -->	
+		     <!--<record model="ir.ui.view" id="hr_echeance_form_view">-->
+                <!--<field name="name">hr.echeance.form</field>-->
+                <!--<field name="model">hr.echeance</field>-->
+                <!--<field name="type">form</field>-->
+                <!--<field name="arch" type="xml">-->
+                    <!--<form string="Echéance" version="7.0">-->
+                    	<!--<group>-->
+                    		<!--<field name="name" on_change="on_change_test(name)"/>-->
+				        	<!--<field name="montant_echeance" sum="Total des échéances"/>-->
+				        	<!--<field name="date_remboursement_echeance"/>-->
+				        	<!--<field name="statut_echeance"/>-->
+                    	<!--</group>-->
+                    <!--</form>-->
+                <!--</field>-->
+            <!--</record>-->
+     
+		 <!--
+			==========
+			Quotité cessible
+			==========
+			-->
+
+		<record model="ir.ui.view" id="quotite_tree_view">
+			<field name="name">quotite.tree</field>
+			<field name="model">hr.emprunt.quotite</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Quotité">
+					<field name="name"/>
+					<field name="job_id"/>
+					<field name="somme_max"/>
+					<field name="description"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="quotite_form_view">
+			<field name="name">quotite.form</field>
+			<field name="model">hr.emprunt.quotite</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="quotite cessible" version="7.0">
+				<sheet>
+					<group col="4" name="quotity">
+						<separator string="Critere" colspan="2"/>
+						<separator string="Somme cessible" colspan="2"/>
+						<field name="name" required="1" col="2"/>
+						<field name="somme_max" col="2"/>
+						<field name="job_id" col="2"/>
+					</group>
+					<notebook colspan="4">
+						<page string="Description">
+							<field name="description" nolabel="1"/>
+						</page>
+					</notebook>
+				  </sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="quotite_search_view">
+			<field name="name">quotite.search</field>
+			<field name="model">hr.emprunt.quotite</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Recherche des Quotités">
+					<group col='15' colspan='4'>
+						<field name="name"/>
+						<field name="job_id"/>
+						<!--  <field name="somme_min"/>-->
+						<field name="somme_max"/>
+				   </group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_quotite_view">
+			<field name="name">Quotité cessible</field>
+			<field name="res_model">hr.emprunt.quotite</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="quotite_menu" name="Quotités Cessibles" parent="id_emprunt_menu" action="action_quotite_view"
+				  groups="hr_emprunt.emprunt_manager" sequence="1"/>
+	</data>
+</openerp>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="hr_payroll_ci.internal_layout">
+        <div class="header">
+            <style type="text/css">
+                h1  {font-weight:bold;}
+                div#item1 {float: left;width: 50%;}
+                table {
+                        border-collapse: collapse;
+                        font-size: 12px;
+                        width: 100%;
+                    }
+                td {
+                        border: 1px solid gray;
+                    }
+                td#title_part {
+                        width: 50%;
+                        font-size: 35px;
+                        font-style: italic;
+                    }
+                td#company{
+                        font-size: 12px;
+                        padding-left: 5px;
+
+                    }
+
+            </style>
+            <table id="header_p">
+                <tr>
+                    <td id="title_part" colspan="2" align="left"><img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" style="height: 50px; width: 150px;"/></td>
+                    <td id="title_part" colspan="3"><h2>BULLETIN DE PAIE</h2></td>
+                </tr>
+                <tr>
+                    <td id="company" colspan="2">PROJET <span t-field="o.company_id.name"></span></td>
+                    <td colspan="2" align="center"><strong>Période de paie</strong></td>
+                    <td align="center"><strong> Date de paie </strong></td>
+                </tr>
+                <tr>
+                    <td id="company" colspan="2">CNPS EMPLOYEUR : <span t-field="o.company_id.num_cnps"></span></td>
+                    <td align="center">Du : <span t-field="o.date_from"/></td>
+                    <td align="center">  Au : <span t-field="o.date_to"/></td>
+                    <td align="center"><span t-field="o.date_to"/></td>
+                </tr>
+            </table>
+        </div>
+        <div class="article">
+            <link href="/hr_payroll_ci/static/src/css/ivoire_payroll.css" rel="stylesheet"/>
+          <t t-raw="0" />
+        </div>
+
+        <div class="footer">
+            <div class="row  text-center">
+                Pour vous aider à faire valoir vos droits, conservez ce bulletin sans limite de durée.
+            </div>
+        </div>
+    </template>
+
+</odoo>

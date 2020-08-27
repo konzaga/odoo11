@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="hr.payroll.prime" id="prime_transport">
+             <field name="name">Prime de transport</field>
+             <field name="code">TRSP</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="indemite_logement">
+             <field name="name">Indemnité de logement</field>
+             <field name="code">INDML</field>
+             <field name="description">Indemnité versée pour le logement de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="prime_assurance">
+             <field name="name">Prime d'assurance</field>
+             <field name="code">ASSUR</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="prime_fonction">
+             <field name="name">Prime de fonction</field>
+             <field name="code">FONCT</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="prime_responsabilite">
+             <field name="name">Prime de responsabilité</field>
+             <field name="code">PRES</field>
+             <field name="description">la prime versé pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="prime_caburant">
+             <field name="name">Prime de caburant</field>
+             <field name="code">CARBU</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="prime_gratification">
+             <field name="name">Gratification</field>
+             <field name="code">GRATIF</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+         <record model="hr.payroll.prime" id="avantage_nature">
+             <field name="name">Avantage en nature</field>
+             <field name="code">AVTGN</field>
+             <field name="description">la prime versée pour le transport de l'employé</field>
+         </record>
+
+        <record id="holiday_status_70" model="hr.holidays.status">
+            <field name="name">Mariage du travailleur</field>
+            <field name="code">MarTra</field>
+            <!--<field name="nbre_jr_max">4</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+
+        <record id="holiday_status_71" model="hr.holidays.status">
+            <field name="name">Mariage d’un de ses enfants, d’un frère, d’une sœur</field>
+            <field name="code">MarEnf</field>
+            <!--<field name="nbre_jr_max">2</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+
+        <record id="holiday_status_72" model="hr.holidays.status">
+            <field name="name">Décès du conjoint</field>
+            <field name="code">DecConj</field>
+            <!--<field name="nbre_jr_max">5</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+
+        <record id="holiday_status_73" model="hr.holidays.status">
+            <field name="name">Décès d’un enfant, du père, de la mère du travailleur</field>
+            <field name="code">DecEnf</field>
+            <!--<field name="nbre_jr_max">5</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+
+
+         <record id="holiday_status_74" model="hr.holidays.status">
+            <field name="name">Décès d’un frère, d’une sœur</field>
+            <field name="code">DecFrSr</field>
+            <!--<field name="nbre_jr_max">2</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+         </record>
+
+        <record id="holiday_status_75" model="hr.holidays.status">
+            <field name="name">Décès d’un beau père ou d’une belle mère</field>
+            <field name="code">DecBePrMr</field>
+            <!--<field name="nbre_jr_max">2</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+
+         <record id="holiday_status_76" model="hr.holidays.status">
+            <field name="name">Naissance d’un enfant</field>
+            <field name="code">NaissEnf</field>
+            <!--<field name="nbre_jr_max">2</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+         </record>
+
+         <record id="holiday_status_77" model="hr.holidays.status">
+            <field name="name">Baptême d’un enfant</field>
+            <field name="code">BapEnf</field>
+            <!--<field name="nbre_jr_max">1</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+         </record>
+
+         <record id="holiday_status_78" model="hr.holidays.status">
+            <field name="name">1ère Communion</field>
+            <field name="code">1Comm</field>
+            <!--<field name="nbre_jr_max">1</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+         </record>
+
+        <record id="holiday_status_79" model="hr.holidays.status">
+            <field name="name">Déménagement</field>
+            <field name="code">Dem</field>
+            <!--<field name="nbre_jr_max">1</field>-->
+            <!--<field name="holidays_category">leave</field>-->
+        </record>
+    </data>
+</openerp>

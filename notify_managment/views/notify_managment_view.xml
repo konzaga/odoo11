@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="notify_model_tree_view">
+            <field name="name">notify.model.tree</field>
+            <field name="model">notify.model</field>
+            <field name="arch" type="xml">
+                <tree string="Gestion des modèles de nofication" >
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="notify_model_form_view">
+            <field name="name">notify.model.form</field>
+            <field name="model">notify.model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h3><field name="name"/></h3>
+                        <notebook>
+                            <page string="Lignes" name="lines">
+                                <field name="line_ids">
+                                    <tree editable="top">
+                                        <field name="type"/>
+                                        <field name="number"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_notif_model_view">
+            <field name='name'>Gestion des modèles de notification</field>
+            <field name="res_model">notify.model</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="notify_model_tree_view"/>
+            <field name="help" type="html">
+            	<p class="oe_view_nocontent_create">
+            		créez votre premier modèle de notification
+            	</p>
+            </field>
+        </record>
+
+        <menuitem name="Gestion des modèles de notifiation" id="notifiy_managment_menu_id"
+            parent="base.menu_custom" groups="base.group_no_one" sequence="0"/>
+
+        <menuitem name="modèles de notifiation" id="notifiy_managment_id"
+            parent="notifiy_managment_menu_id" sequence="50"
+            groups="base.group_no_one" action="action_notif_model_view"/>
+    </data>
+</openerp>

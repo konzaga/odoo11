@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Workflow heur supp-->
+    	<record id="workflow_heur_supp" model="workflow">
+    		<field name="name">heure.supp.wkfl</field>
+    		<field name="osv">hr.attendance.heure.supp</field>
+    	</record>
+
+		<!-- Workflow heure supp activities -->
+		<record id="act_heur_supp_draft" model="workflow.activity">
+			<field name="name">draft</field>
+			<field name="wkf_id" ref="workflow_heur_supp"></field>
+			<field name="kind">function</field>
+			<field name="action">action_draft()</field>
+			<field name="flow_start">True</field>
+		</record>
+
+		<record id="act_heur_supp_confirmed" model="workflow.activity">
+			<field name="name">confirmed</field>
+			<field name="wkf_id" ref="workflow_heur_supp"></field>
+			<field name="kind">function</field>
+			<field name="action">action_validate()</field>
+		</record>
+
+		<record id="act_heur_supp_cancel" model="workflow.activity">
+			<field name="name">cancel</field>
+			<field name="wkf_id" ref="workflow_heur_supp"></field>
+			<field name="kind">function</field>
+			<field name="action">action_refuse()</field>
+		</record>
+
+    	    <!-- Worflow expbesoin transition -->
+    	    <!--<record id="trans_expbesoin_0" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_draft"/>
+	            <field name="act_to" ref="act_expbesoin_confirmed"/>
+	            <field name="signal">signal_confirm</field>
+	            <field name="condition">True</field>
+            </record>
+            
+            <record id="trans_draft_done" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_draft"/>
+	            <field name="act_to" ref="act_expbesoin_done"/>
+	            <field name="signal">signal_done</field>
+	            <field name="condition">type_demande == 'divers'</field>
+            </record>
+            
+            <record id="trans_expbesoin_00" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_draft"/>
+	            <field name="act_to" ref="act_expbesoin_cancel"/>
+	            <field name="signal">signal_cancel</field>
+	            <field name="condition">True</field>
+            </record>
+            
+            
+            <record id="trans_expbesoin_drat_service" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_draft"/>
+	            <field name="act_to" ref="act_expbesoin_service"/>
+	            <field name="signal">signal_service</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            <record id="trans_expbesoin_affected" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_confirmed"/>
+	            <field name="act_to" ref="act_expbesoin_service"/>
+	            <field name="signal">signal_service</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            <record id="trans_expbesoin_quotation_g" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_confirmed"/>
+	            <field name="act_to" ref="act_expbesoin_transmitted"/>
+	            <field name="signal">signal_transmitted</field>
+	            <field name="condition">type_demande == 'general'</field>
+            </record>
+            
+            
+            <record id="trans_service_affecte" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_service"/>
+	            <field name="act_to" ref="act_expbesoin_affected"/>
+	            <field name="signal">signal_affected</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            <record id="trans_expbesoin_service" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_affected"/>
+	            <field name="act_to" ref="act_expbesoin_service"/>
+	            <field name="signal">signal_service</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            
+            <record id="trans_expbesoin_departement" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_service"/>
+	            <field name="act_to" ref="act_expbesoin_departement"/>
+	            <field name="signal">signal_departement</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            <record id="trans_expbesoin_demandeur" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_departement"/>
+	            <field name="act_to" ref="act_expbesoin_retour_demandeur"/>
+	            <field name="signal">signal_retour_demandeur</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            <record id="trans_expbesoin_transmitted" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_retour_demandeur"/>
+	            <field name="act_to" ref="act_expbesoin_transmitted"/>
+	            <field name="signal">signal_transmitted</field>
+	            <field name="condition">type_demande == 'technique'</field>
+            </record>
+            
+            
+            <record id="trans_expbesoin_quotation" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_transmitted"/>
+	            <field name="act_to" ref="act_expbesoin_quotation"/>
+	            <field name="signal">signal_quotation</field>
+	            <field name="condition">type_demande in ('general','technique')</field>
+            </record>
+            
+            
+            <record id="trans_cotation_fournisseur" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_quotation"/>
+	            <field name="act_to" ref="act_expbesoin_retour_frs"/>
+	            <field name="signal">signal_retour_frs</field>
+	            <field name="condition">True</field>
+            </record>
+            
+            <record id="trans_expbesoin_1" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_retour_frs"/>
+	            <field name="act_to" ref="act_expbesoin_done"/>
+	            <field name="signal">signal_done</field>
+	            <field name="condition">True</field>
+            </record>
+            <record id="trans_expbesoin_2" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_done"/>
+	            <field name="act_to" ref="act_expbesoin_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+            <record id="trans_expbesoin_3" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_confirmed"/>
+	            <field name="act_to" ref="act_expbesoin_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+            
+            <record id="trans_expbesoin_service_draft" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_service"/>
+	            <field name="act_to" ref="act_expbesoin_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+            
+            <record id="trans_expbesoin_dep_draft" model="workflow.transition">
+	            <field name="act_from" ref="act_expbesoin_departement"/>
+	            <field name="act_to" ref="act_expbesoin_draft"/>
+	            <field name="signal">signal_draft</field>
+	            <field name="condition">True</field>
+            </record>
+            -->
+    </data>
+</openerp>

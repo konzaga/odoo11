@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_jour_ferie">
+            <field name="name">hr.jour.ferie.form</field>
+            <field name="model">hr.jour.ferie</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form name="Jours feries" >
+                    <sheet>
+                        <group col="4">
+                            <field name="name" col="2"/>
+                            <field name="date" col="2"/>
+                            <field name="payroll_in" col="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_jour_ferie_tree_view" model="ir.ui.view">
+            <field name="name">hr.jour.ferie.form</field>
+            <field name="model">hr.jour.ferie</field>
+            <field name="arch" type="xml">
+                <tree name="Jours feries" >
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="payroll_in" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_jour_ferie_tree" model="ir.actions.act_window">
+            <field name="name">Jours feriés</field>
+            <field name="res_model">hr.jour.ferie</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_jour_ferie_tree_view"/>
+        </record>
+
+        <menuitem id="hr_jour_ferie_id" parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager"
+                action="action_hr_jour_ferie_tree"/>
+
+    </data>
+</odoo>

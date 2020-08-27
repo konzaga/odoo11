@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_fdfp">
+            <t t-call="web.external_layout">
+                <t t-set="data_report_margin_top" t-value="5"/>
+                <t t-set="data_report_margin_left" t-value="2"/>
+                <t t-set="data_report_margin_rigth" t-value="2"/>
+                <t t-set="data_report_header_spacing" t-value="2"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                             div.bg {
+                                 border-top:0;
+                                 border-left:1px solid black;
+                                 border-bottom:1px solid black;
+                                 border-right:1px solid black;
+                                 background-color:rgba(240, 255, 167, 1);
+                                }
+                         </style>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-3">NCC : <span t-field="o.company_id.num_contribuable"/></div>
+                                <div class="col-xs-6 text-center">
+                                    REPUBLIQUE DE COTE D'IVOIRE<br/>
+                                        Union-Discipline-Travail<br/>
+                                    -------------------------<br/>
+                                   MINISTERE AUPRES DU PREMIER MINISTRE,<br/>
+                                            CHARGE DU BUDGET<br/>
+                                    -------------------------
+                                </div>
+                                <div class="col-xs-3"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2 text-center" style="border:1px solid black;
+                                                            height:150px;
+                                                            display:block;
+                                                            font-size:11px;
+                                                            ">
+                                    <div class="row" style="border:1px solid black;">CACHET DU SERVICE</div>
+
+                                </div>
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-6 text-center">
+                                    <strong>DIRECTION GENERALE DES IMPOTS</strong><br/>
+                                <img src="hr_fdfp/static/img/dgi2.jpg"
+                                     style="max-height: 30px;
+                                     width: 100px;
+                                    display: block;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    padding:auto;"
+                                />
+                                    <strong>TAXE D'APPRENTISSAGE ET TAXE</strong><br/>
+                                <strong>ADDITIONNELLE A LA FORMATION CONTINUE</strong><br/>
+                                    (Articles 143 et suivants du CGI)<br/>
+                                    --------------------------------<br/>
+                                    <strong>ETAT ANNEXE</strong>
+                                </div>
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-2 text-center" style="border:1px solid black;
+                                                            height:150px;
+                                                            display:block;
+                                                            font-size:11px;
+                                                            ">
+                                    <div class="row" style="border:1px solid black;">DATE DE RECEPTION</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="row" style="margin-top:50px;">
+                             <div class="col-xs-12">
+                                <div class="col-xs-7">
+                                    <div class="row">
+                                        <div  class="col-xs-12">
+                                            <div class="col-xs-4" style="font-size:10px;">PERIODE D'IMPOSITION</div>
+                                            <div t-if=" date.month == 1 or date.month == 2 or date.month == 3 or date.month == 4 or date.month == 5 or date.month == 6 or date.month == 7 or date.month == 8 or date.month == 9"
+                                                 class="col-xs-1 bg">
+                                                0
+                                            </div>
+                                            <div t-if="date.month == 10 or date.month == 11 or date.month == 12"
+                                                 class="col-xs-1 bg">
+                                                1
+                                            </div>
+                                            <div t-if="date.month == 1" class="col-xs-1 bg">
+                                                1
+                                            </div>
+                                            <div t-if="date.month == 2" class="col-xs-1 bg">
+                                                2
+                                            </div>
+                                            <div t-if="date.month == 3" class="col-xs-1 bg">
+                                                3
+                                            </div>
+                                            <div t-if="date.month == 4" class="col-xs-1 bg" >
+                                                4
+                                            </div>
+                                            <div t-if="date.month == 5" class="col-xs-1 bg">
+                                                5
+                                            </div>
+                                            <div t-if="date.month == 6" class="col-xs-1 bg">
+                                                6
+                                            </div>
+                                            <div t-if="date.month == 7" class="col-xs-1 bg">
+                                                7
+                                            </div>
+                                            <div t-if="date.month == 9" class="col-xs-1 bg">
+                                                9
+                                            </div>
+                                            <div t-if="date.month == 10" class="col-xs-1 bg">
+                                                0
+                                            </div>
+                                            <div t-if="date.month == 11" class="col-xs-1 bg">
+                                                1
+                                            </div>
+                                            <div t-if="date.month == 12" class="col-xs-1 bg">
+                                                2
+                                            </div>
+                                            <div class="col-xs-1" ></div>
+                                            <div class="col-xs-1 bg">0</div>
+                                            <div t-if=" date.month == 1 or date.month == 2 or date.month == 3" class="col-xs-1 bg">
+                                                <span t-esc="trim[0]"/>
+                                            </div>
+                                            <div t-if="date.month == 4 or date.month == 5 or date.month == 6" class="col-xs-1 bg">
+                                                <span t-esc="trim[1]"/>
+                                            </div>
+                                            <div t-if="date.month == 7 or date.month == 8 or date.month == 9" class="col-xs-1 bg">
+                                                <span t-esc="trim[2]"/>
+                                            </div>
+                                            <div t-if="date.month == 10 or date.month == 11 or date.month == 12" class="col-xs-1 bg">
+                                                <span t-esc="trim[3]"/>
+                                            </div>
+                                            <div class="col-xs-1" ></div>
+                                            <div  class="col-xs-1 bg">
+                                                <span t-esc="date_year[0]"/>
+                                            </div>
+                                            <div class="col-xs-1 bg"><span t-esc="date_year[1]"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-5">
+                                    <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-7">
+                                                        <span style="font-size:13px;font-style:italic;">
+                                                        SERVICE<br/> D'ASSIETTE DES IMPOTS:
+                                                         </span>
+                                                    </div>
+                                                    <div class="col-xs-5 col-xs-offset-0">
+                                                        <span style="text-align:left;display:inline-block;width:250px;padding-top:15px;">
+                                                            <span t-field="o.company_id.impot_service"/>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                    </div>
+                                </div>
+                             </div>
+                            </div>
+                            <div class="row">
+                             <div class="col-xs-12" style="margin-top:-10px;">
+                                <div class="col-xs-7">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-2" style="text-align:center;">MOIS</div>
+                                            <div class="col-xs-1" ></div>
+                                            <div class="col-xs-2" style="text-align:center;">TRIM</div>
+                                            <div class="col-xs-1" ></div>
+                                            <div class="col-xs-2" style="text-align:center;">ANNEE</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <br/>
+                             </div>
+                            </div>
+                        <p style="margin-top:10px;"><strong>Determination de la base imposable</strong></p>
+                        <p style="margin-top:10px;"><strong>01 – EFFECTIF DES SALARIES</strong></p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2">
+                                    <div class="row">
+                                        <table class="table table-condensed table-bordered" style="border: 1px solid black;">
+                                            <tr>
+                                                <td   style="border: 1px solid black;">CATEGORIE</td>
+                                                <td   style="border: 1px solid black;">EFFECTIF</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);">CADRES</td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span
+                                                        t-esc="number['effectif_cadres']"/></td>
+                                            </tr>
+                                            <tr>
+                                                 <td  style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);">MAITRISES</td>
+                                                 <td  style=" text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span
+                                                        t-esc="number['effectif_maitrise']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);">EMPLOYES</td>
+                                                <td style=" text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span
+                                                        t-esc="number['effectif_employes']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);">OUVRIERS</td>
+                                                <td style=" text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span
+                                                        t-esc="number['effectif_ouvriers']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);">EFFECTIF TOTAL</td>
+                                                <td style=" text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="number['total']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-4">
+                                    <div class="row">
+                                        <table class="table table-condensed table-bordered">
+                                            <tr>
+                                                <td colspan="3" style="text-align:center;border: 1px solid black;">BALANCE MENSUELLE DE L'EFFECTIF</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;">ENTREE</td>
+                                                <td style="text-align:center;border: 1px solid black;">SORTIE</td>
+                                                <td style="text-align:center;border: 1px solid black;">DIFFERENCE <sup>(1)</sup></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_cad']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['close_cad']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_cad']- mensuel['close_cad']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_mait']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['close_mait']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_mait']- mensuel['close_mait']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_emp']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['close_emp']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_emp'] - mensuel['close_emp']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_work']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['close_work']"/></td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="mensuel['open_work'] - mensuel['close_work']"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="mensuel['total_open']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="mensuel['total_close']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="mensuel['total_open'] - mensuel['total_close']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-4">
+                                    <div class="row">
+                                        <table class="table table-condensed table-bordered" style="border: 1px solid black;">
+                                            <tr>
+                                                <td colspan="3" style="text-align:center;border: 1px solid black;">BALANCE ANNUELLE DE L'EFFECTIF <sup>(2)</sup></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;">ENTREE</td>
+                                                <td style="text-align:center;border: 1px solid black;">SORTIE</td>
+                                                <td style="text-align:center;border: 1px solid black;">DIFFERENCE <sup>(1)</sup></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_cad']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['close_cad']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_cad'] - annuel['close_cad']"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_mait']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['close_mait']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_mait'] - annuel['close_mait']"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_emp']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['close_emp']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_emp'] - annuel['close_emp']"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_work']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['close_work']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['open_work'] - annuel['close_work']"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['total_open']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['total_close']"/>
+                                                </td>
+                                                <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                                    <span t-esc="annuel['total_open'] - annuel['total_close']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top:10px;"><strong>02 – DETERMINATION DES TAXES</strong></p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <t t-set="net_pay" t-value="0"/>
+                                <table class="table table-condensed table-borded">
+                                    <tr class="text-center">
+                                        <td style="border: 1px solid black;">NATURE DES TAXES</td>
+                                        <td style="border: 1px solid black;">TOTALES</td>
+                                        <td style="border: 1px solid black;">TAUX</td>
+                                        <td style="border: 1px solid black;">MONTANT A PAYER</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">2.1- TAXE D'APPRENTISSAGE (TA)</td>
+                                        <td class="text-center" style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="format_amount( TAXEAP)"/></td>
+                                        <td class="text-center" style="border: 1px solid black;"><span t-field="o.company_id.taux_fdfp"/>%</td>
+                                        <td class="text-right" style="border: 1px solid black;">
+                                            <span t-esc="format_amount( taxe_apprentissage)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">2.2- TAXE A LA FORMATION CONTINUE (TFC)</td>
+                                        <td class="text-center" style="border: 1px solid black;background-color:rgba(240, 255, 167, 1);"><span t-esc="format_amount( TAXEFP)"/></td>
+                                        <td class="text-center" style="border: 1px solid black;"><span t-field="o.company_id.taux_fdfp_fc"/>%</td>
+                                        <td class="text-right" style="border: 1px solid black;">
+                                            <span t-esc="format_amount(taxe_formation_continue)"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-8"  style="padding-right:1px;padding-left:0;"><br/>
+                                    <span style="font-size:17px;font-style:italic;vertical-align:middle;">
+                                    2.3- Montant cumulé de la TFC conservée depuis le début de l’année<sup>(3)</sup></span>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-0">
+                                    <span style="border: 1px solid black;
+                                                display:inline-block;
+                                                padding-top:15px;
+                                                padding-left:0;
+                                                margin-left:-10px;
+                                                height:50px;
+                                                text-align:center;
+                                                width:250px;
+                                                background-color:rgba(240, 255, 167, 1);
+                                                text-align:center;
+                                                ">
+                                        <span t-esc="format_amount( TAXEFP)" />
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <t t-set="montant_an_tfc" t-value="0.0"/>
+                        <p style="margin-top:10px;"><strong>03 – REGULARISATION ANNUELLE <sup>(2)</sup></strong></p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-condensed table-borded" width="100%">
+                                    <tr>
+                                        <td rowspan="2" style="border: 1px solid black; vertical-align:bottom;">3.1– Masse salariale annuelle......................................................</td>
+                                        <td width="30%" style="border: 1px solid black; text-align:center;"><strong>MONTANT</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);">
+                                            <span t-esc="format_amount( masse_salariale)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">3.2 - Montant annuel de la TFC (3.1 x 1,2 %)...................................</td>
+                                        <td style="border: 1px solid black; text-align:center;">
+                                            <span t-esc="format_amount( montant_annuel)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">3.3 - Montant total de la TFC payée au cours de l’année (2.3)......</td>
+                                        <td style="text-align:center;border: 1px solid black;">
+                                            <span t-esc="format_amount( TAXEFP)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">3.4 - Engagement sur plans agréés par le FDFP (utilisation directe).....</td>
+                                        <td style="text-align:center;border: 1px solid black;background-color:rgba(240, 255, 167, 1);"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black;">3.5- Versement à effectuer si |3.2| est supérieur à |3.3| + |3.4|............|3.5| = |3.2| – (|3.3| + |3.4|)
+                                        </td>
+                                        <td style="text-align:center;border: 1px solid black;">
+                                            <span t-esc="format_amount( versement)"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 0"></td>
+                                        <td style="border: 0"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" style="border: 0"><strong>Montant à payer</strong></td>
+                                        <td style="text-align:center;border: 1px solid black;">
+                                            <span t-esc="format_amount(montant_a_payer)"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <p style="margin-top:10px;">(1) - Faire précéder le chiffre par le signe (-) ou (+).<br/>
+                            (2) - Rubriques à servir pour la déclaration du mois de décembre ou en cas de cessation d’activité de l’entreprise.<br/>
+                            (3) - Le montant cumulé de la TFC (0,6 %) sur 12 mois est à reverser en fin d’année, si l’entreprise n’a pas bénéficié de
+                            plan de formation agréé par le FDFP.<br/>
+                            (4) - Les montants à payer (TA et TFC), doivent faire l’objet de deux chèques libellés respectivement à l’ordre du
+                            Receveur des Impôts FDFP/TA et du Receveur des Impôts FDFP/TFC. En cas de formation agréée, joindre les pièces
+                            justificatives (agrément). Aucune compensation sur les taxes FDFP n’est admise.
+                        </p>
+
+
+        </div>
+                </t>
+            </t>
+        </template>
+</data>
+</odoo>
